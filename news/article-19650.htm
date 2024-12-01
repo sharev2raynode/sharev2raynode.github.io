@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-19650.htm" />
+    <title>vue实现自定义全局右键菜单_vue.js</title>
+        <meta name="description" content="前段时间公司在做一个webIDE项目，其中有对文件树的各种操作，主要通过右键菜单实现，今天就来记录一下怎么在vue项目中实现全局的自定义右键菜单。效果如图所示：  注意： 需要在项目中找到页面整体布局" />
+        <link rel="icon" href="__ADDON__/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                                                <a class="navbar-brand" href="/">Share V2ray Node</a>
+                                            </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li>
+                                <a href="#">关于</a>
+                            </li>
+                            <li>
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">vue实现自定义全局右键菜单_vue.js</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                              				  				  				<p>前段时间公司在做一个webIDE项目，其中有对文件树的各种操作，主要通过右键菜单实现，今天就来记录一下怎么在vue项目中实现全局的自定义右键菜单。效果如图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/2a621ad2e70ec81e0e79c7faecdf5453.jpg"></p> <p><span style="color:#c0392b"><strong>注意：</strong></span></p> <p>需要在项目中找到页面整体布局的组件，比如项目使用Home.vue作为整个项目的公共布局，将根元素定位设置成relative，使右键菜单相对于其进行定位。</p> <p>本文的右键菜单主要使用vuex实现</p> <p><strong>一、vuex中定义全局状态用于管理右键菜单</strong></p> <div class="ay1code"> <pre class="brush:js;">export default {      /**       * menuContent格式：       * [       *      {       *          name: '新建文件',   // 操作名       *          method: 'createDirectory',  // 需要执行的对应组件中的方法       *             disabled: true        // 是否禁用，可以根据页面具体逻辑进行调整       *      }       * ]       *        *        * 整体右键菜单采用绝对定位，所以clientX、clientY代表是left和top定位       */      state: {          menuContent: [],    // 右键菜单内容          clientX: '',    // left          clientY: '',    // top          displayContextMenu: false   // 是否展示右键菜单      },      mutations: {          SET_CONTEXT_MENU: (state, payload) =&gt; {              state.menuContent = payload.menuContent;              state.clientX = payload.clientX;              state.clientY = payload.clientY;              state.displayContextMenu = payload.displayContextMenu;          },      }  }</pre> </div> <p><strong>二、定义公共组件ContextMenu.vue</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;      &lt;div class="context-menu" v-show="contextMenu.displayContextMenu"           :style="{'left': contextMenu.clientX + 'px', 'top': contextMenu.clientY + 'px'}"&gt;          &lt;ul&gt;              &lt;li v-for="(item, i) in contextMenu.menuContent" :key="i" :class="item.disabled ? 'disabled' : ''"                   @click="emitEvent(item.method)"&gt;                  {{item.name}}              &lt;/li&gt;          &lt;/ul&gt;      &lt;/div&gt;  &lt;/template&gt;    &lt;script&gt;  import { mapState } from 'vuex';  import bus from '@/views/common/bus';  export default {      name: 'ContextMenu',      data(){          return {          }      },      computed: {          ...mapState(['contextMenu'])      },      methods: {          emitEvent(type){              bus.$emit('operateDirectory', type)          }      }  }  &lt;/script&gt;    &lt;style lang="scss" scoped&gt;      .context-menu {          position: absolute;          background: #FFF;          color: #34495E;          min-width: 100px;          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);          border-radius: 2px;          cursor: pointer;          z-index: 1002;          &amp;&gt;ul {              text-align: left;              padding: 5px 10px;              &amp;&gt;li {                  padding: 3px 4px;                  font-size: 12px;                  list-style: none;                  height: 24px;                  line-height: 24px;                  &amp;:hover {                      background: #EDF6FF;                  }              }              .disabled {                  color: #888585;                  pointer-events: none;              }          }      }  &lt;/style&gt;</pre> </div> <p><strong>三、在组件中使用</strong></p> <div class="ay1code"> <pre class="brush:js;">import { mapState } from 'vuex';  // ...    computed: {      ...mapState(['contextMenu'])  },  created(){      bus.$on('operateDirectory', (param) =&gt; {      // 点击右键菜单时，应触发组件内的同名方法，首先应判断该方法是否在本组件内存在，存在则调用          if(this[param]){              this[param]();          }      });  },  // ...    methods: {      showContextMenu(event, data) {          event.preventDefault();        // 阻止浏览器的默认事件          const menuContent = {              menuContent: [              {                  icon: "el-icon-upload2",                  name: "运行",                  method: "run",              },              {                  icon: "el-icon-refresh",                  name: "编辑",                  method: "editConfig",              },              {                  icon: "el-icon-refresh",                  name: "添加",                  method: "addCommond",              },              {                  icon: "el-icon-refresh",                  name: "删除",                  method: "deleteConfig",              },              ],              clientX: event.clientX,              clientY: event.clientY,              displayContextMenu: true,          };          this.$store.commit("SET_CONTEXT_MENU", menuContent);          // 再次点击页面，右键菜单消失          document.onclick = (event) =&gt; {              this.$store.commit("SET_CONTEXT_MENU", {                  displayContextMenu: false,              });          };      },      run(){          // ...      },      editConfig(){          // ...      },      addCommond(){          // ...      },      deleteConfig(){          // ...      }  }</pre> </div> <p><strong>总结</strong></p> <p>这种可以实现全局右键菜单，并且支持自定义右键内容，但是vue3.0对event bus的取消会导致不可用。</p> <p>目前有一种优化方法：项目中对应会使用组件库，例如element ui，在定义contextMenu.vue的时候，使用dialog，将内容定义在Popover 弹出框中，当组件使用右键菜单时，使用子组件的方式使用ContextMenu.vue，点击右键菜单内容时就不需要使用emit触发了。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19195.htm">兽用疫苗放一晚上还能用吗 兽用疫苗放一晚上还能用吗有毒吗</a></p>
+                                        <p>下一个：<a href="/news/article-19651.htm">宠物粮食价格高对策论文（宠物粮食问题）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-node-subscribe.htm" title="10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐">10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-ssr-subscribe.htm" title="11月18日20.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐">11月18日20.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-subscribe-node.htm" title="10月13日20.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">10月13日20.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-clash-v2ray-ss-ssr.htm" title="8月22日22.7M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">8月22日22.7M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-24-node-share.htm" title="7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-15-node-share.htm" title="7月15日20.2M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">7月15日20.2M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-24-node-share.htm" title="6月24日19.3M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">6月24日19.3M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-v2ray-subscribe.htm" title="10月18日18.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐">10月18日18.1M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-2-free-shadowrocket-node.htm" title="6月2日19.8M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">6月2日19.8M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-20-clash-node.htm" title="5月20日19.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">5月20日19.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
