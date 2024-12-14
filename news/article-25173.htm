@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-25173.htm" />
+    <title>Django项目使用pyinstall打包步骤（包含各种出错处理方法）</title>
+        <meta name="description" content="由于需要虚拟环境中各种依赖的库，在其他电脑开启本地服务，所以将Django项目进行打包，以下是各种步骤以及出错的处理  安装pyinstall 我在使用pip安装pyinstall的时候，会出现大量的" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                                                <a class="navbar-brand" href="/">Share V2ray Node</a>
+                                            </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li>
+                                <a href="#">关于</a>
+                            </li>
+                            <li>
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">Django项目使用pyinstall打包步骤（包含各种出错处理方法）</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>由于需要虚拟环境中各种依赖的库，在其他电脑开启本地服务，所以将Django项目进行打包，以下是各种步骤以及出错的处理</p> <ul> <li>安装pyinstall<br /> 我在使用pip安装pyinstall的时候，会出现大量的红字错误，只需要按照下面的指令一个个执行就好了</li> </ul> <pre><code>pip install pywin32； pip install wheel pip install -U setuptools pip install pyinstaller </code></pre> <ul> <li>开始打包</li> </ul> <p>执行下面两条指令，其中执行第一条后会生成一个spec文件，先不用管，等会会进行修改。第二条就是开始使用pyinstaller打包的指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>在执行过程中，可能会出现Import Error，注意是可能在打包而不是执行的时候出现，网上大多都是说执行exe时会出现。而这里出现，他并没有说明缺的是哪个包，这个时候就要将控制台往上翻，就会翻到类似这个的错误</p> <pre><code>Import Error：No module named XXX </code></pre> <p>然后我显示缺失的包名是我Django项目中的其中一个App名，而我将app都放在了apps文件夹中，并在settings文件夹中设置了目录，导致pyinstall找不到。</p> <p>解决办法就是将app都移到主目录上，settings注释掉设置目录的代码即可，操作并不复杂，之后再次执行上面那两句打包指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>这次我就正常生成了exe文件在dict目录下，执行下面指令开启服务器</p> <pre><code>manage.exe runserver </code></pre> <p>然后又是一堆Import Error，后面会跟着缺失的包名，这个就很好解决了，打开上面提到的manage.spec文件，按照下面这个图这样加入缺失的包名。具体是为什么，简单来说是因为这些是django项目中隐式加入的，所以我们需要手动加进去。<br /> 然后就是删掉build和dict文件夹并重新打包，重新开启服务器，有时候会提示缺失多个包，有时候会只提示一个，反正重复执行到不出现Import Error为止<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/f4705d06921a8cfb3fef751fc81760a7.jpg" alt="Django项目使用pyinstall打包步骤（包含各种出错处理方法）"></p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec cd dict manage.exe runserver </code></pre> <p>我在处理完上述问题后，又出现了新的问题，主要是这两条</p> <pre><code>KeyError:'interval' LookupError: No trigger by the name "interval" was found SchedulerNotRunningError:Scheduler is not running </code></pre> <p>出现错误的地方是Django项目中有使用调度器scheduler，具体错误原因不明，但是网上有很多解决办法，其中有效的是创建一个IntervalTrigger对象代替参数</p> <pre><code>trigger = IntervalTrigger(hours=3) @register_job(scheduler,trigger)     def my_job():     	#省略 </code></pre> <p>同样适用于add_job</p> <p>上面的问题处理完后，就可以正常开启本地服务器了，但是却访问不了页面，因为模板等都没有复制过去，如果有第三方库也用到html、css、js文件等，可以直接将第三方库地文件夹复制到exe同级目录，这样就不会出错了。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24707.htm">合肥宠物救助中心地址（合肥宠物救助中心地址查询）</a></p>
+                                        <p>下一个：<a href="/news/article-25175.htm">Java 18 新特性：简单Web服务器 jwebserver</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-clash-v2ray-ss-ssr.htm" title="8月18日18M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">8月18日18M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-30-free-subscribe-node.htm" title="5月30日20.9M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">5月30日20.9M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-node-subscribe.htm" title="10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐">10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-14-free-v2ray-subscribe.htm" title="5月14日20M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">5月14日20M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19194.htm" title="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架">Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-high-speed-nodes.htm" title="10月14日22.3M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐">10月14日22.3M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-5-23-clash-node.htm" title="5月23日20.9M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接">5月23日20.9M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-12-node-share-links.htm" title="7月12日22M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">7月12日22M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-11-free-high-speed-nodes.htm" title="8月11日22.4M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">8月11日22.4M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-4-30-node-share-links.htm" title="4月30日18.2M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接">4月30日18.2M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
