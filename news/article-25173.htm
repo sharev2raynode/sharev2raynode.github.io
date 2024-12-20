@@ -118,7 +118,8 @@
                               <li class="active">正文</li>
                             </ol>
                             
-                                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>由于需要虚拟环境中各种依赖的库，在其他电脑开启本地服务，所以将Django项目进行打包，以下是各种步骤以及出错的处理</p> <ul> <li>安装pyinstall<br /> 我在使用pip安装pyinstall的时候，会出现大量的红字错误，只需要按照下面的指令一个个执行就好了</li> </ul> <pre><code>pip install pywin32； pip install wheel pip install -U setuptools pip install pyinstaller </code></pre> <ul> <li>开始打包</li> </ul> <p>执行下面两条指令，其中执行第一条后会生成一个spec文件，先不用管，等会会进行修改。第二条就是开始使用pyinstaller打包的指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>在执行过程中，可能会出现Import Error，注意是可能在打包而不是执行的时候出现，网上大多都是说执行exe时会出现。而这里出现，他并没有说明缺的是哪个包，这个时候就要将控制台往上翻，就会翻到类似这个的错误</p> <pre><code>Import Error：No module named XXX </code></pre> <p>然后我显示缺失的包名是我Django项目中的其中一个App名，而我将app都放在了apps文件夹中，并在settings文件夹中设置了目录，导致pyinstall找不到。</p> <p>解决办法就是将app都移到主目录上，settings注释掉设置目录的代码即可，操作并不复杂，之后再次执行上面那两句打包指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>这次我就正常生成了exe文件在dict目录下，执行下面指令开启服务器</p> <pre><code>manage.exe runserver </code></pre> <p>然后又是一堆Import Error，后面会跟着缺失的包名，这个就很好解决了，打开上面提到的manage.spec文件，按照下面这个图这样加入缺失的包名。具体是为什么，简单来说是因为这些是django项目中隐式加入的，所以我们需要手动加进去。<br /> 然后就是删掉build和dict文件夹并重新打包，重新开启服务器，有时候会提示缺失多个包，有时候会只提示一个，反正重复执行到不出现Import Error为止<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/f4705d06921a8cfb3fef751fc81760a7.jpg" alt="Django项目使用pyinstall打包步骤（包含各种出错处理方法）"></p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec cd dict manage.exe runserver </code></pre> <p>我在处理完上述问题后，又出现了新的问题，主要是这两条</p> <pre><code>KeyError:'interval' LookupError: No trigger by the name "interval" was found SchedulerNotRunningError:Scheduler is not running </code></pre> <p>出现错误的地方是Django项目中有使用调度器scheduler，具体错误原因不明，但是网上有很多解决办法，其中有效的是创建一个IntervalTrigger对象代替参数</p> <pre><code>trigger = IntervalTrigger(hours=3) @register_job(scheduler,trigger)     def my_job():     	#省略 </code></pre> <p>同样适用于add_job</p> <p>上面的问题处理完后，就可以正常开启本地服务器了，但是却访问不了页面，因为模板等都没有复制过去，如果有第三方库也用到html、css、js文件等，可以直接将第三方库地文件夹复制到exe同级目录，这样就不会出错了。</p> </p></div> 			                <div class="clearfix"></div>
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>由于需要虚拟环境中各种依赖的库，在其他电脑开启本地服务，所以将Django项目进行打包，以下是各种步骤以及出错的处理</p> <ul> <li>安装pyinstall<br /> 我在使用pip安装pyinstall的时候，会出现大量的红字错误，只需要按照下面的指令一个个执行就好了</li> </ul> <pre><code>pip install pywin32； pip install wheel pip install -U setuptools pip install pyinstaller </code></pre> <ul> <li>开始打包</li> </ul> <p>执行下面两条指令，其中执行第一条后会生成一个spec文件，先不用管，等会会进行修改。第二条就是开始使用pyinstaller打包的指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>在执行过程中，可能会出现Import Error，注意是可能在打包而不是执行的时候出现，网上大多都是说执行exe时会出现。而这里出现，他并没有说明缺的是哪个包，这个时候就要将控制台往上翻，就会翻到类似这个的错误</p> <pre><code>Import Error：No module named XXX </code></pre> <p>然后我显示缺失的包名是我Django项目中的其中一个App名，而我将app都放在了apps文件夹中，并在settings文件夹中设置了目录，导致pyinstall找不到。</p> <p>解决办法就是将app都移到主目录上，settings注释掉设置目录的代码即可，操作并不复杂，之后再次执行上面那两句打包指令</p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec </code></pre> <p>这次我就正常生成了exe文件在dict目录下，执行下面指令开启服务器</p> <pre><code>manage.exe runserver </code></pre> <p>然后又是一堆Import Error，后面会跟着缺失的包名，这个就很好解决了，打开上面提到的manage.spec文件，按照下面这个图这样加入缺失的包名。具体是为什么，简单来说是因为这些是django项目中隐式加入的，所以我们需要手动加进去。<br /> 然后就是删掉build和dict文件夹并重新打包，重新开启服务器，有时候会提示缺失多个包，有时候会只提示一个，反正重复执行到不出现Import Error为止<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/f4705d06921a8cfb3fef751fc81760a7.jpg" alt="Django项目使用pyinstall打包步骤（包含各种出错处理方法）"></p> <pre><code>pyi-makespec -D manage.py pyinstaller manage.spec cd dict manage.exe runserver </code></pre> <p>我在处理完上述问题后，又出现了新的问题，主要是这两条</p> <pre><code>KeyError:'interval' LookupError: No trigger by the name "interval" was found SchedulerNotRunningError:Scheduler is not running </code></pre> <p>出现错误的地方是Django项目中有使用调度器scheduler，具体错误原因不明，但是网上有很多解决办法，其中有效的是创建一个IntervalTrigger对象代替参数</p> <pre><code>trigger = IntervalTrigger(hours=3) @register_job(scheduler,trigger)     def my_job():     	#省略 </code></pre> <p>同样适用于add_job</p> <p>上面的问题处理完后，就可以正常开启本地服务器了，但是却访问不了页面，因为模板等都没有复制过去，如果有第三方库也用到html、css、js文件等，可以直接将第三方库地文件夹复制到exe同级目录，这样就不会出错了。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24707.htm">合肥宠物救助中心地址（合肥宠物救助中心地址查询）</a></p>
                                         <p>下一个：<a href="/news/article-25175.htm">Java 18 新特性：简单Web服务器 jwebserver</a></p>
@@ -131,16 +132,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-28-shadowrocket-node.htm" title="8月28日20.4M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接">8月28日20.4M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-ssr-node.htm" title="10月20日18.8M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接，翻墙机场推荐">10月20日18.8M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-4-free-high-speed-nodes.htm" title="6月4日21.2M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">6月4日21.2M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22403.htm" title="宠物粮品牌排行前十名 宠物粮品牌排行前十名有哪些">宠物粮品牌排行前十名 宠物粮品牌排行前十名有哪些</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-9-node-share.htm" title="6月9日21.8M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接">6月9日21.8M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-shadowrocket-node.htm" title="8月15日18M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">8月15日18M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-clash-node.htm" title="11月23日22.6M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐">11月23日22.6M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-20-clash-node.htm" title="5月20日19.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">5月20日19.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-shadowrocket-node.htm" title="8月27日22.5M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接">8月27日22.5M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-28-free-clash.htm" title="6月28日19.6M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">6月28日19.6M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-shadowrocket-node.htm" title="10月8日18.1M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">10月8日18.1M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-14-free-shadowrocket-node.htm" title="6月14日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">6月14日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22404.htm" title="开宠物店需要具备的条件和要求（开宠物店具备哪些条件）">开宠物店需要具备的条件和要求（开宠物店具备哪些条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-free-v2ray.htm" title="8月16日21M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">8月16日21M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-v2ray.htm" title="9月24日20.9M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接">9月24日20.9M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-24-node-share.htm" title="7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-free-ssr-subscribe.htm" title="8月26日22.2M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接">8月26日22.2M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-node-subscribe.htm" title="10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐">10月31日21.6M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-shadowrocket-node.htm" title="11月20日18.9M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐">11月20日18.9M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-v2ray-subscribe.htm" title="12月14日20.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">12月14日20.8M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                     </ul>
     </div>
 </div>
@@ -152,7 +153,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -199,6 +200,15 @@
             <!-- COPYRIGHT AREA -->
             <div class="secondary-footer bg-black">
                 <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
 	                ShareV2rayNode节点分享站 版权所有
 	                <br />
 	                Powered by WordPress
