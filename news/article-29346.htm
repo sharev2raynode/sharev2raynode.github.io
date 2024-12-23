@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-29346.htm" />
+    <title>React + TypeScript实战（一）设定事件处理函数的参数类型</title>
+        <meta name="description" content="首先提出需求，给input框绑定一个change事件，打印输入框中每次输入的内容。 在设定参数类型的时候，首先想到的就是Event类型： type IState = readonly&lt;{    " />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                                                <a class="navbar-brand" href="/">Share V2ray Node</a>
+                                            </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li>
+                                <a href="#">关于</a>
+                            </li>
+                            <li>
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">React + TypeScript实战（一）设定事件处理函数的参数类型</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>首先提出需求，给input框绑定一个change事件，打印输入框中每次输入的内容。</p> <p>在设定参数类型的时候，首先想到的就是<code>Event</code>类型：</p> <pre><code class="prism language-react">type IState = readonly&lt;{     ... }&gt;  class Student extends React.Component&lt;any, IState&gt;{   inputChange = (e: Event) =&gt; {     console.log(((e.target) as HTMLInputElement).value);   }    render(): React.ReactNode {     return &lt;div className="container"&gt;       &lt;div className="box"&gt;         &lt;input type="text" onChange={this.inputChange}/&gt;       &lt;/div&gt;     &lt;/div&gt;   } } </code></pre> <p>但是这样会报错：</p> <pre><code>不能将类型“(e: Event) =&gt; void”分配给类型“ChangeEventHandler&lt;HTMLInputElement&gt;”。 参数“e”和“event” 的类型不兼容。 类型“ChangeEvent&lt;HTMLInputElement&gt;”缺少类型“Event”的以下属性: cancelBubble, composed, returnValue, srcElement 及其他 7 项。ts(2322) index.d.ts(2254, 9): 所需类型来自属性 "onChange"，在此处的 "DetailedHTMLProps&lt;InputHTMLAttributes&lt;HTMLInputElement&gt;, HTMLInputElement&gt;" 类型上声明该属性 </code></pre> <p>从这个报错信息来看，<code>onChange</code>事件需要的似乎是一个这样类型的处理函数<code>ChangeEventHandler&lt;HTMLInputElement&gt;</code></p> <p>现在先引入<code>ChangeEventHandler</code>，看一看它对应的源码：</p> <pre><code class="prism language-ts"><span class="token keyword">type</span> <span class="token class-name">ChangeEventHandler<span class="token operator">&lt;</span><span class="token constant">T</span> <span class="token operator">=</span> Element<span class="token operator">&gt;</span></span> <span class="token operator">=</span> EventHandler<span class="token operator">&lt;</span>ChangeEvent<span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;&gt;</span><span class="token punctuation">;</span> </code></pre> <p>这意味着，我们的<code>onChange</code>事件是一个<code>EventHandler</code>，它自带的<code>event</code>参数类型为<code>ChangeEvent&lt;T&gt;</code>，由于这里是一个输入框，所以应该为<code>event</code>设置参数为<code>ChangeEvent&lt;HTMLInputElement&gt;</code>再来试试，成功获取到了输入内容！</p> <pre><code class="prism language-react">type IState = readonly&lt;{     ... }&gt;  class Student extends React.Component&lt;any, IState&gt;{   inputChange = (e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {     console.log((e.target.value));   }    render(): React.ReactNode {     return &lt;div className="container"&gt;       &lt;div className="box"&gt;         &lt;input type="text" onChange={this.inputChange}/&gt;       &lt;/div&gt;     &lt;/div&gt;   } } </code></pre> <p>如果你使用的是hooks写法，也可以这样写，不过这并不是本节的重点：</p> <pre><code class="prism language-ts">inputChange <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token generic-function"><span class="token function">useCallback</span><span class="token generic class-name"><span class="token operator">&lt;</span>React<span class="token punctuation">.</span>ChangeEventHandler<span class="token operator">&lt;</span>HTMLInputElement<span class="token operator">&gt;&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span>     <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </code></pre> <p>接下来给扩展一个功能，如果有很多个输入框，是否可以共用同一个<code>onChange</code>方法呢？</p> </h1> <p>比如说，我现在需要多个输入框，分别输入学号、姓名、年龄的信息</p> <p>如果分别给每个输入框绑定不同的事件，那就要写三个相似度非常高的函数，这样不太美观：</p> <pre><code class="prism language-react">import React, { ChangeEvent } from 'react'  type IState = Readonly&lt;{   no: string,   name: string,   age: string }&gt;  class Student extends React.Component&lt;any, IState&gt;{   readonly state: IState = {     no: "",     name: "",     age: "",   	list: []   }      inputChangeNo = (key: string, e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {     // 不同的输入框触发change事件，最后打印的key值不同     console.log(key, e.target.value);   }      inputChangeName = (key: string, e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {     console.log(key, e.target.value);   }      inputChangeAge = (key: string, e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {     console.log(key, e.target.value);   }    render(): React.ReactNode {     return &lt;div className="container"&gt;       &lt;div className="box"&gt;         &lt;input           type="text"           value={this.state.no}           onChange={(e) =&gt; this.inputChangeNo("no", e)}           placeholder="输入学号"         /&gt;         &lt;input           type="text"           value={this.state.name}           onChange={(e) =&gt; this.inputChangeName("name", e)}           placeholder="输入姓名"         /&gt;         &lt;input           type="text"           value={this.state.age}           onChange={(e) =&gt; this.inputChangeAge("age", e)}           placeholder="输入年龄"         /&gt;       &lt;/div&gt;     &lt;/div&gt;   } }  export default Student </code></pre> <p>看起来我们似乎可以执行这样的操作：</p> <pre><code class="prism language-ts"><span class="token function-variable function">inputChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> e<span class="token operator">:</span> ChangeEvent<span class="token operator">&lt;</span>HTMLInputElement<span class="token operator">&gt;</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>         <span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value     <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> </code></pre> <p>但是对于<code>key</code>值来说，他是一个<strong>字符串索引类型数据</strong>，所以一定需要给他绑定<strong>对应的类型</strong>。</p> <p>在这个案例中，我们需要用到的属性有：</p> <pre><code class="prism language-ts"><span class="token keyword">type</span> <span class="token class-name">IState</span> <span class="token operator">=</span> Readonly<span class="token operator">&lt;</span><span class="token punctuation">{<!-- --></span>   no<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>   name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>   age<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>   list<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token operator">&gt;</span> </code></pre> <p>所以索引对应的类型应该有<code> "no" | "name" | "age "</code>，成功设定！</p> <pre><code class="prism language-react">import React, { ChangeEvent } from 'react'  interface PeopleType{   id: number   name: string   age: string }  interface IState{   [name: string]: string | PeopleType[]   list: PeopleType[]   no: string,   name: string,   age: string }  class People extends React.Component&lt;any, IState&gt;{   readonly state: IState = {     no: "",     name: "",     age: "",     list: []   }    inputChange = &lt;K extends keyof IState&gt;(key: K, e: ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {     this.setState({       [key]: e.target.value     })   }    render(): React.ReactNode {     return &lt;div className="container"&gt;       &lt;div className="box"&gt;         &lt;input           type="text"           value={this.state.no}           onChange={(e) =&gt; this.inputChange("no", e)}           placeholder="输入学号"         /&gt;         &lt;input           type="text"           value={this.state.name}           onChange={(e) =&gt; this.inputChange("name", e)}           placeholder="输入姓名"         /&gt;         &lt;input           type="text"           value={this.state.age}           onChange={(e) =&gt; this.inputChange("age", e)}           placeholder="输入年龄"         /&gt;       &lt;/div&gt;     &lt;/div&gt;   } }  export default People </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28890.htm">猫咪三针打完多久可以出门（猫咪三针打完多久可以出门了）</a></p>
+                                        <p>下一个：<a href="/news/article-29347.htm">中国农业大学动物医院价目表体检（中国农业大学动物医院收费标准）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-4-19-free-v2ray-subscribe.htm" title="4月19日18.3M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接">4月19日18.3M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-free-v2ray.htm" title="8月29日20.7M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接">8月29日20.7M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-clash-v2ray-ss-ssr.htm" title="11月3日21.9M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐">11月3日21.9M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-22-node-share-links.htm" title="7月22日20.1M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">7月22日20.1M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-free-v2ray.htm" title="8月16日21M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">8月16日21M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-ssr-node.htm" title="9月9日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">9月9日21.8M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28431.htm" title="python实现基于smtp发送邮件_在线工具">python实现基于smtp发送邮件_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-19651.htm" title="宠物粮食价格高对策论文（宠物粮食问题）">宠物粮食价格高对策论文（宠物粮食问题）</a></li>
+                        <li class="py-2"><a href="/news/article-27959.htm" title="egg.js在Nginx docker中提示 Session ID unknown">egg.js在Nginx docker中提示 Session ID unknown</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-shadowrocket-node.htm" title="8月25日18M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">8月25日18M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
