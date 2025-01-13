@@ -1,4 +1,4 @@
-# 1月10日22M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享  更新时间 2025-01-10 10:51:48
+# 1月13日22.4M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享  更新时间 2025-01-13 08:36:50
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://sharev2raynode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://sharev2raynode.github.io/uploads/2025/01/0-20250110.yaml
-- https://sharev2raynode.github.io/uploads/2025/01/1-20250110.yaml
-- https://sharev2raynode.github.io/uploads/2025/01/2-20250110.yaml
-- https://sharev2raynode.github.io/uploads/2025/01/3-20250110.yaml
-- https://sharev2raynode.github.io/uploads/2025/01/4-20250110.yaml
+- https://sharev2raynode.github.io/uploads/2025/01/0-20250113.yaml
+- https://sharev2raynode.github.io/uploads/2025/01/1-20250113.yaml
+- https://sharev2raynode.github.io/uploads/2025/01/2-20250113.yaml
+- https://sharev2raynode.github.io/uploads/2025/01/3-20250113.yaml
+- https://sharev2raynode.github.io/uploads/2025/01/4-20250113.yaml
 
 ### V2ray订阅链接
 
-- https://sharev2raynode.github.io/uploads/2025/01/0-20250110.txt
-- https://sharev2raynode.github.io/uploads/2025/01/1-20250110.txt
-- https://sharev2raynode.github.io/uploads/2025/01/2-20250110.txt
-- https://sharev2raynode.github.io/uploads/2025/01/3-20250110.txt
-- https://sharev2raynode.github.io/uploads/2025/01/4-20250110.txt
+- https://sharev2raynode.github.io/uploads/2025/01/0-20250113.txt
+- https://sharev2raynode.github.io/uploads/2025/01/1-20250113.txt
+- https://sharev2raynode.github.io/uploads/2025/01/2-20250113.txt
+- https://sharev2raynode.github.io/uploads/2025/01/3-20250113.txt
+- https://sharev2raynode.github.io/uploads/2025/01/4-20250113.txt
 
 ### Sing-box订阅链接
 
-- https://sharev2raynode.github.io/uploads/2025/01/20250110.json
+- https://sharev2raynode.github.io/uploads/2025/01/20250113.json
 
 ## 更多clash节点订阅 ：
 
