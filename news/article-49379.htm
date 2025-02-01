@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-49379.htm" />
+    <title>Vue指令之v-for的使用说明_vue.js</title>
+        <meta name="description" content="目录  Vue v-for的使用  1.迭代普通数组 2.迭代对象数组 3.迭代对象 4.迭代数字  v-for的最佳使用技巧  1.始终在v-for循环中使用key 2.不要在循环中使用v-if 3" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-49379.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Vue指令之v-for的使用说明_vue.js" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/1b9de71ea93dd2702c0be3b7a96405cf.webp" />
+        <meta property="og:release_date" content="2025-02-01T07:13:40" />
+    <meta property="og:updated_time" content="2025-02-01T07:13:40" />
+        <meta property="og:description" content="目录  Vue v-for的使用  1.迭代普通数组 2.迭代对象数组 3.迭代对象 4.迭代数字  v-for的最佳使用技巧  1.始终在v-for循环中使用key 2.不要在循环中使用v-if 3" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue指令之v-for的使用说明_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                                                <a class="navbar-brand" href="/">Share V2ray Node</a>
+                                            </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li>
+                                <a href="#">关于</a>
+                            </li>
+                            <li>
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">Vue指令之v-for的使用说明_vue.js</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">Vue v-for的使用</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">1.迭代普通数组</a></li> <li><a href="#_lab2_0_1" rel="nofollow">2.迭代对象数组</a></li> <li><a href="#_lab2_0_2" rel="nofollow">3.迭代对象</a></li> <li><a href="#_lab2_0_3" rel="nofollow">4.迭代数字</a></li> </ul> <li><a href="#_label1" rel="nofollow">v-for的最佳使用技巧</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_4" rel="nofollow">1.始终在v-for循环中使用key</a></li> <li><a href="#_lab2_1_5" rel="nofollow">2.不要在循环中使用v-if</a></li> <li><a href="#_lab2_1_6" rel="nofollow">3.使用计算属性或方法来处理数据后再做数据遍历</a></li> <li><a href="#_lab2_1_7" rel="nofollow">4.在一个范围内循环</a></li> <li><a href="#_lab2_1_8" rel="nofollow">5.在循环中访问项目的索引</a></li> <li><a href="#_lab2_1_9" rel="nofollow">6.遍历一个对象</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>Vue v-for的使用</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>1.迭代普通数组</h3> <p>在data中定义普通数组</p> <div class="ay1code"> <pre class="brush:js;">data:{        list:[1,2,3,4,5,6]  }</pre> </div> <p>在html中使用 v-for 指令渲染</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;p v-for="(item,i) in list"&gt;--索引值--{{i}}   --每一项--{{item}}&lt;/p&gt;</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>2.迭代对象数组</h3> <p>在data中定义对象数组</p> <div class="ay1code"> <pre class="brush:js;">data:{        list:[1,2,3,4,5,6],        listObj:[          {id:1, name:'zs1'},          {id:2, name:'zs2'},          {id:3, name:'zs3'},          {id:4, name:'zs4'},          {id:5, name:'zs5'},          {id:6, name:'zs6'},        ]  }</pre> </div> <p>在html中使用 v-for 指令渲染</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;p v-for="(user,i) in listObj"&gt;--id--{{user.id}}   --姓名--{{user.name}}&lt;/p&gt;</pre> </div> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>3.迭代对象</h3> <p>在data中定义对象</p> <div class="ay1code"> <pre class="brush:js;">data:{        user:{          id:1,          name:'托尼.贾',          gender:'男'        }  }</pre> </div> <p>在html中使用 v-for 指令渲染</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;p v-for="(val,key) in user"&gt;--键是--{{key}}--值是--{{val}}&lt;/p&gt;</pre> </div> <p class="maodian"><a name="_lab2_0_3" rel="nofollow"></a></p> <h3>4.迭代数字</h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!-- 注意：如果使用v-for迭代数字的话，前面 count 的值从 1 开始--&gt;  &lt;p v-for="count in 10"&gt;这是第{{count}}次循环&lt;/p&gt;</pre> </div> <p><strong>完整代码：</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;html&gt;    &lt;head&gt;      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;    &lt;/head&gt;  &lt;body&gt;    &lt;div id='app'&gt;      &lt;!--v-for循环普通数组--&gt;      &lt;p v-for="(item,i) in list"&gt;--索引值--{{i}}   --每一项--{{item}}&lt;/p&gt;      &lt;br/&gt;      &lt;!--v-for循环对象数组--&gt;      &lt;p v-for="(user,i) in listObj"&gt;--id--{{user.id}}   --姓名--{{user.name}}&lt;/p&gt;      &lt;br/&gt;      &lt;!--注意，在遍历对象的键值对的时候，除了有 val 和 key,在第三个位置还有一个索引--&gt;      &lt;p v-for="(val,key) in user"&gt;--键是--{{key}}  --值是--{{val}}&lt;/p&gt;      &lt;br/&gt;      &lt;!-- in 后面我们放过数组、对象数组、对象，还可以放数字--&gt;      &lt;!-- 注意：如果使用v-for迭代数字的话，前面 count 的值从 1 开始--&gt;      &lt;p v-for="count in 10"&gt;这是第{{count}}次循环&lt;/p&gt;    &lt;/div&gt;  &lt;/body&gt;  &lt;script src="vue.min.js"&gt;&lt;/script&gt;  &lt;script&gt;    var vm = new Vue({      el:'#app',      data:{        list:[1,2,3,4,5,6],        listObj:[          {id:1, name:'zs1'},          {id:2, name:'zs2'},          {id:3, name:'zs3'},          {id:4, name:'zs4'},          {id:5, name:'zs5'},          {id:6, name:'zs6'},        ],        user:{          id:1,          name:'托尼.贾',          gender:'男'        }      }    });  &lt;/script&gt;  &lt;/html&gt;</pre> </div> <p><strong>截图：</strong></p> <p><img fetchpriority="high" decoding="async" alt="" height="958" src="http://img.555519.xyz/uploads3/20220423/2402199202d08a48413eb5b30f753553.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>v-for的最佳使用技巧</h2> <p>在vuejs中，v-for 的使用是比较常见的，它允许您在模板代码中编写for循环。那么在使用v-for的时候，可曾思考过使用这个指令的一些技巧吗？</p> <p>在介绍它的使用技巧之前，我先介绍下它的基本用法吧，在vue中v-for可以遍历数组、对象、字符串，但是用的最多的还是遍历数组，基本方法如下：</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;div id="app"&gt;      &lt;ul&gt;    &lt;li v-for='item in list'&gt;      {{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;  &lt;/div&gt;</pre> </div> <p>可能有些初学者在使用的过程中，不会考虑太多的使用技巧，直接遍历定义在data中的数据，其实vue在设计的初衷，也考虑到了这个问题，如果频繁使用data中的数据，可能会造成一些性能上的消耗，是相当不友好的。</p> <p>在本篇文章中，我将介绍六种方法来使你的 v-for 代码更加精确，可预测和强大。</p> <p class="maodian"><a name="_lab2_1_4" rel="nofollow"></a></p> <h3>1.始终在v-for循环中使用key</h3> <p>建议在遍历数据的时候，都尽可能的加上key，设置一个惟一的键属性，它可以确保组件以您期望的方式工作。有些时候，可能使用索引index也可以，但是在一些特定的场景下，比如多场景登录下，如果不使用key来标识当前使用的登录方式，那么可能会造成数据的紊乱问题，如果数据量比较大， 页面的数据更新时会造成渲染数据消耗很大的性能甚至出现不可预测的bug，如果我们对每个元素都有唯一的键引用，那么我们就可以更好地准确地预测DOM将如何操作，就可以避免很多不必要的问题出现。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;div id="app"&gt;      &lt;ul&gt;    &lt;li v-for='item in list'  :key='item.id'&gt;      {{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;  &lt;/div&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_5" rel="nofollow"></a></p> <h3>2.不要在循环中使用v-if</h3> <p>一个超级常见的错误是使用 v-if 来过滤 v-for 循环的数据。Vuejs优先考虑 v-for 而不是 v-if,这意味着组件将循环遍历每个元素，然后检查 v-if 条件以确定是否应渲染。因此，实际上，无论条件是什么，都将遍历数组。尽管这看起来很直观，但它会导致一个巨大的性能问题</p> <div class="ay1code"> <pre class="brush:xhtml;">/*千万不要这样写，切记切记*/  &lt;div id="app"&gt;      &lt;ul&gt;    &lt;li v-for='item in list'        :key='item.id'        v-if="item.price&lt;50"        &gt;      {{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;  &lt;/div&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_6" rel="nofollow"></a></p> <h3>3.使用计算属性或方法来处理数据后再做数据遍历</h3> <p>为避免上述问题，我们应该在遍历模板中的数据之前对其进行过滤。有两种非常相似的方法</p> <ul> <li>使用计算属性</li> <li>使用过滤方法</li> </ul> <p>首先，我们只需要设置一个计算属性，为了获得与之前的v-if相同的功能，代码应如下所示。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;div id="app"&gt;      &lt;ul&gt;    &lt;li v-for='item in underPrice'        :key='item.id'        &gt;      {{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;  &lt;/div&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;    export default {      data () {        return {          list: []        }      },      computed: {        underPrice: function () {          return this.list.filter(item=&gt; item.price &lt; 50)        }      }    }  &lt;/script&gt;</pre> </div> <p>计算属性是作为属性使用的，并不是方法。使用computed，可以将数据做缓存处理，在每次渲染数据的时候，会优先在缓存在找该数据，如果有了直接从缓存中取出渲染，如果没有的话再重新获取。这样也大大的提高了性能。</p> <p>或者可以使用方式来进行变量的筛选以及处理再做遍历</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;div id="app"&gt;      &lt;ul&gt;    &lt;li v-for='item in underPriceHandle(50)'        :key='item.id'        &gt;      {{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;  &lt;/div&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;    export default {      data () {        return {          list: []        }      },      methods: {        underPriceHandle: function (price) {          return this.list.filter(item=&gt; item.price &lt; price)        }      }    }  &lt;/script&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_7" rel="nofollow"></a></p> <h3>4.在一个范围内循环</h3> <p>尽管大多数情况下，v-for 用于遍历数组或对象，但在某些情况下，我们肯定只希望循环执行一定次数。</p> <p>例如，假设我们正在为在线商店创建一个分页系统，而我们只希望每页显示10个产品。使用一个变量来跟踪当前的页码，我们可以像这样处理分页。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;ul&gt;    &lt;li v-for='index in 10' :key='index'&gt;      {{ books[page * 10 + index] }}    &lt;/li&gt;  &lt;/ul&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_8" rel="nofollow"></a></p> <h3>5.在循环中访问项目的索引</h3> <p>除了遍历数组和访问每个元素之外，我们还可以跟踪每个项的索引。</p> <p>为此，我们必须在项目后添加一个索引值，它非常简单，可用于分页，显示列表索引，显示排名等。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;ul&gt;    &lt;li v-for='(item, index) in products' :key='item.id' &gt;     {{ index }}----{{ item.name }}    &lt;/li&gt;  &lt;/ul&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_9" rel="nofollow"></a></p> <h3>6.遍历一个对象</h3> <p>我们也可以使用v-for轻松地遍历对象的键值对。</p> <p>与访问元素的索引类似，我们必须向循环中添加另一个值。如果我们用一个参数遍历一个对象，我们将遍历所有的项。</p> <p>如果我们添加另一个参数，我们将获得items 和 key，如果添加第三个，我们还可以访问 v-for 循环的索引。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;ul&gt;    &lt;li v-for='(list, index) in lists' :key='list.id' &gt;      &lt;span v-for='(item, key, index) in list' :key='key'&gt;        {{ item }}      &lt;/span&gt;    &lt;/li&gt;  &lt;/ul&gt;</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48859.htm">猫亲近人的表现（猫亲近人会预示这个人得了一些疾病吗）</a></p>
+                                        <p>下一个：<a href="/news/article-49380.htm">免费领养宠物的平台（免费领养宠物的平台重庆）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47874.htm" title="vue-cli3.0 吃过的坑">vue-cli3.0 吃过的坑</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-clash-node.htm" title="11月12日20.9M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐">11月12日20.9M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-27037.htm" title="动物疫苗证明怎么开 动物疫苗证明怎么开具">动物疫苗证明怎么开 动物疫苗证明怎么开具</a></li>
+                        <li class="py-2"><a href="/news/article-38485.htm" title="Hbase(四)：Hbase原理">Hbase(四)：Hbase原理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-v2ray-subscribe.htm" title="12月15日18.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">12月15日18.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-v2ray-subscribe.htm" title="12月27日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">12月27日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe-links.htm" title="11月11日22.2M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐">11月11日22.2M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-18634.htm" title="小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）">小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-node-subscribe.htm" title="12月19日21.4M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">12月19日21.4M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-33184.htm" title="在vue中手写一个文字的轮播功能">在vue中手写一个文字的轮播功能</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
