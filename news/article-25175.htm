@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <meta charset="UTF-8">
@@ -10,6 +10,33 @@
     <title>Java 18 新特性：简单Web服务器 jwebserver</title>
         <meta name="description" content="在今年3月下旬的时候，Java版本已经更新到了18。接下来DD计划持续做一个系列，主要更新从Java 9开始的各种更新内容，但我不全部都介绍，主要挑一些有意思的内容，以文章和视频的方式来给大家介绍和学" />
         <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-25175.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Java 18 新特性：简单Web服务器 jwebserver" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/94ef7f69a2dd055ea0a742b07afa2d7f.webp" />
+        <meta property="og:release_date" content="2024-12-13T12:04:25" />
+    <meta property="og:updated_time" content="2024-12-13T12:04:25" />
+        <meta property="og:description" content="在今年3月下旬的时候，Java版本已经更新到了18。接下来DD计划持续做一个系列，主要更新从Java 9开始的各种更新内容，但我不全部都介绍，主要挑一些有意思的内容，以文章和视频的方式来给大家介绍和学" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 18 新特性：简单Web服务器 jwebserver">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
     <!-- OWL CAROUSEL -->
@@ -132,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31736.htm" title="烘手机安装图(烘手机离地多少合适)">烘手机安装图(烘手机离地多少合适)</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-24-node-share.htm" title="7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">7月24日21.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-13-shadowrocket-node.htm" title="8月13日18.6M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">8月13日18.6M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-4-shadowrocket-node.htm" title="8月4日22.7M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接">8月4日22.7M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31207.htm" title="宠物粮食品牌大全图片及价格 宠物粮食品牌大全图片及价格表">宠物粮食品牌大全图片及价格 宠物粮食品牌大全图片及价格表</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-3-free-ssr-subscribe.htm" title="8月3日18.6M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接">8月3日18.6M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-clash-subscribe.htm" title="10月27日20.4M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐">10月27日20.4M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-5-free-ssr-subscribe.htm" title="8月5日21.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">8月5日21.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-11-clash-windows.htm" title="6月11日20.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">6月11日20.2M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-24-node-share.htm" title="6月24日19.3M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">6月24日19.3M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-v2ray-subscribe.htm" title="12月15日18.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">12月15日18.3M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-shadowrocket-node.htm" title="12月11日19.5M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">12月11日19.5M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-32211.htm" title="linux 硬盘满了如何处理">linux 硬盘满了如何处理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-v2ray-subscribe.htm" title="12月27日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">12月27日21M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-ssr-subscribe.htm" title="12月10日19M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">12月10日19M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-clash-v2ray-ss-ssr.htm" title="11月19日20.8M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐">11月19日20.8M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-49889.htm" title="动物疫苗接种时间查询app 动物疫苗查询系统">动物疫苗接种时间查询app 动物疫苗查询系统</a></li>
+                        <li class="py-2"><a href="/news/article-39469.htm" title="vs code编写web项目">vs code编写web项目</a></li>
+                        <li class="py-2"><a href="/news/article-34606.htm" title="宠物免费领养软件下载（宠物免费领养平台下载）">宠物免费领养软件下载（宠物免费领养平台下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-free-node-subscribe-links.htm" title="1月22日18.7M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月22日18.7M/S|Clash/SSR/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                     </ul>
     </div>
 </div>
@@ -153,34 +180,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

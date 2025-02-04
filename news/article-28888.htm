@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <meta charset="UTF-8">
@@ -10,6 +10,33 @@
     <title>Spring Boot 容器镜像分层构建</title>
         <meta name="description" content="一、场景 最常见的是容器镜像，将依赖、代码、配置分层后可以利用容器镜像层缓存机制加快构建和下载，这个场景使用分层是最优最简单的。 k8s 移除 Docker 后，文档中的 Docker 都去掉了…现在" />
         <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-28888.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Spring Boot 容器镜像分层构建" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/fcc29eabab6e1a40e05e8353a7727d5b.webp" />
+        <meta property="og:release_date" content="2024-12-21T10:10:10" />
+    <meta property="og:updated_time" content="2024-12-21T10:10:10" />
+        <meta property="og:description" content="一、场景 最常见的是容器镜像，将依赖、代码、配置分层后可以利用容器镜像层缓存机制加快构建和下载，这个场景使用分层是最优最简单的。 k8s 移除 Docker 后，文档中的 Docker 都去掉了…现在" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Boot 容器镜像分层构建">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
     <!-- OWL CAROUSEL -->
@@ -132,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-5-18-free-subscribe-node.htm" title="5月18日21.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接">5月18日21.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-14-shadowrocket-node.htm" title="7月14日18.9M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接">7月14日18.9M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-6-free-clash-subscribe.htm" title="5月6日22.2M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接">5月6日22.2M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-29-free-ssr-node.htm" title="7月29日20.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接">7月29日20.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-ssr-node.htm" title="10月21日22.5M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐">10月21日22.5M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-3-free-ssr-subscribe.htm" title="8月3日18.6M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接">8月3日18.6M/S|V2ray/Shadowrocket/SSR/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27037.htm" title="动物疫苗证明怎么开 动物疫苗证明怎么开具">动物疫苗证明怎么开 动物疫苗证明怎么开具</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-2-clash-v2ray-ss-ssr.htm" title="5月2日21M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接">5月2日21M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21945.htm" title="想开宠物家庭寄养（开宠物寄养赚钱吗）">想开宠物家庭寄养（开宠物寄养赚钱吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-8-clash-windows.htm" title="7月8日23M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接">7月8日23M/S|Shadowrocket/V2ray/SSR/Clash免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share.htm" title="1月10日18.9M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">1月10日18.9M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-v2ray-subscribe.htm" title="1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-44435.htm" title="宠物美容师大概多少钱一个月（宠物美容师月薪多少）">宠物美容师大概多少钱一个月（宠物美容师月薪多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-ssr-subscribe.htm" title="12月13日22.4M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐分享">12月13日22.4M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-clash-windows.htm" title="12月20日18.6M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">12月20日18.6M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-33185.htm" title="Android 白天黑夜模式切换适配及引起的Activity销毁重启解决">Android 白天黑夜模式切换适配及引起的Activity销毁重启解决</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-ssr-node.htm" title="12月31日20.6M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">12月31日20.6M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-ssr-node.htm" title="12月12日18.1M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">12月12日18.1M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-38485.htm" title="Hbase(四)：Hbase原理">Hbase(四)：Hbase原理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-shadowrocket-node.htm" title="1月7日22M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">1月7日22M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                     </ul>
     </div>
 </div>
@@ -153,34 +180,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

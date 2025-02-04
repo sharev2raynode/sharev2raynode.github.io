@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <meta charset="UTF-8">
@@ -10,6 +10,33 @@
     <title>vue实现自定义全局右键菜单_vue.js</title>
         <meta name="description" content="前段时间公司在做一个webIDE项目，其中有对文件树的各种操作，主要通过右键菜单实现，今天就来记录一下怎么在vue项目中实现全局的自定义右键菜单。效果如图所示：  注意： 需要在项目中找到页面整体布局" />
         <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-19650.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="vue实现自定义全局右键菜单_vue.js" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/19be1256fadba8773c41bb5538b186b7.webp" />
+        <meta property="og:release_date" content="2024-12-01T10:01:02" />
+    <meta property="og:updated_time" content="2024-12-01T10:01:02" />
+        <meta property="og:description" content="前段时间公司在做一个webIDE项目，其中有对文件树的各种操作，主要通过右键菜单实现，今天就来记录一下怎么在vue项目中实现全局的自定义右键菜单。效果如图所示：  注意： 需要在项目中找到页面整体布局" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue实现自定义全局右键菜单_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
     <!-- OWL CAROUSEL -->
@@ -132,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-23312.htm" title="猫咬了多久过安全期被猫咬了的图片（猫咬了多久过安全期是真的吗）">猫咬了多久过安全期被猫咬了的图片（猫咬了多久过安全期是真的吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-6-free-node-subscribe.htm" title="7月6日18.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接">7月6日18.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-clash.htm" title="12月5日20M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐">12月5日20M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-8-free-ssr-subscribe.htm" title="5月8日22.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接">5月8日22.3M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-2-free-subscribe-node.htm" title="8月2日18.7M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接">8月2日18.7M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-5-shadowrocket-node.htm" title="6月5日18.2M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">6月5日18.2M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-node-subscribe-links.htm" title="10月4日18.6M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接">10月4日18.6M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-v2ray-subscribe.htm" title="11月10日22.6M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐">11月10日22.6M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/news/article-30317.htm" title="动物疫苗的概念是什么意思（动物疫苗概念股有哪些）">动物疫苗的概念是什么意思（动物疫苗概念股有哪些）</a></li>
-                        <li class="py-2"><a href="/news/article-25643.htm" title="详解如何在Flutter中获取设备标识符_Android_">详解如何在Flutter中获取设备标识符_Android_</a></li>
+                        <li class="py-2"><a href="/news/article-19195.htm" title="兽用疫苗放一晚上还能用吗 兽用疫苗放一晚上还能用吗有毒吗">兽用疫苗放一晚上还能用吗 兽用疫苗放一晚上还能用吗有毒吗</a></li>
+                        <li class="py-2"><a href="/news/article-37976.htm" title="南京领养狗狗的地方有哪些（南京哪里有领养狗狗的地方）">南京领养狗狗的地方有哪些（南京哪里有领养狗狗的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-34127.htm" title="宠物医院好评语句 宠物医院好评语句有哪些">宠物医院好评语句 宠物医院好评语句有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-46903.htm" title="淮北小动物救助站（淮北小动物救助站电话）">淮北小动物救助站（淮北小动物救助站电话）</a></li>
+                        <li class="py-2"><a href="/news/article-19194.htm" title="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架">Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-v2ray.htm" title="11月6日19.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐">11月6日19.1M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-45413.htm" title="宠物医院诊疗许可证在什么部门办理（宠物医院诊疗许可证的年审）">宠物医院诊疗许可证在什么部门办理（宠物医院诊疗许可证的年审）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share.htm" title="1月29日20.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">1月29日20.1M/S|V2ray/Clash/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-v2ray-subscribe.htm" title="1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-26112.htm" title="宠物粮生产设备前十名排名 宠物粮生产设备前十名排名榜">宠物粮生产设备前十名排名 宠物粮生产设备前十名排名榜</a></li>
                     </ul>
     </div>
 </div>
@@ -153,34 +180,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

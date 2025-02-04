@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <meta charset="UTF-8">
@@ -10,6 +10,33 @@
     <title>Rabbit MQ 怎么保证可靠性、幂等性、消费顺序</title>
         <meta name="description" content="RabbitMQ如何保证消息的可靠性 RabbitMQ消息丢失的三种情况 生产者弄丢消息时的解决方法  方法一：生产者在发送数据之前开启RabbitMQ的事务(采用该种方法由于事务机制，会导致吞吐量下" />
         <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-20571.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Rabbit MQ 怎么保证可靠性、幂等性、消费顺序" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/bd4efa72ae5a94a8e423d3cf0231b71a.webp" />
+        <meta property="og:release_date" content="2024-12-03T00:14:53" />
+    <meta property="og:updated_time" content="2024-12-03T00:14:53" />
+        <meta property="og:description" content="RabbitMQ如何保证消息的可靠性 RabbitMQ消息丢失的三种情况 生产者弄丢消息时的解决方法  方法一：生产者在发送数据之前开启RabbitMQ的事务(采用该种方法由于事务机制，会导致吞吐量下" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Rabbit MQ 怎么保证可靠性、幂等性、消费顺序">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
     <!-- OWL CAROUSEL -->
@@ -132,16 +159,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-6-4-free-high-speed-nodes.htm" title="6月4日21.2M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接">6月4日21.2M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-12-free-clash-subscribe.htm" title="5月12日19.6M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接">5月12日19.6M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-shadowrocket-node.htm" title="12月4日18.6M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐">12月4日18.6M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-38989.htm" title="创建型设计模式: 单例模式(Singleton Pattern)">创建型设计模式: 单例模式(Singleton Pattern)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-clash-subscribe.htm" title="1月28日20.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">1月28日20.8M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-39469.htm" title="vs code编写web项目">vs code编写web项目</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-ssr-node.htm" title="11月13日22.4M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐">11月13日22.4M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-23775.htm" title="河南省动物疫苗招标公告（河南省动物疫苗招标公告公示）">河南省动物疫苗招标公告（河南省动物疫苗招标公告公示）</a></li>
+                        <li class="py-2"><a href="/news/article-24707.htm" title="合肥宠物救助中心地址（合肥宠物救助中心地址查询）">合肥宠物救助中心地址（合肥宠物救助中心地址查询）</a></li>
                         <li class="py-2"><a href="/news/article-22404.htm" title="开宠物店需要具备的条件和要求（开宠物店具备哪些条件）">开宠物店需要具备的条件和要求（开宠物店具备哪些条件）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share-links.htm" title="11月26日22.4M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐">11月26日22.4M/S|Shadowrocket/V2ray/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-15-free-node-subscribe.htm" title="5月15日18.2M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接">5月15日18.2M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-free-shadowrocket-node.htm" title="9月11日18.9M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接">9月11日18.9M/S|Shadowrocket/SSR/V2ray/Clash免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-ssr-node.htm" title="12月17日20.5M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐分享">12月17日20.5M/S|V2ray/SSR/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-5-21-shadowrocket-node.htm" title="5月21日22.6M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接">5月21日22.6M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-10-clash-windows.htm" title="8月10日19.3M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接">8月10日19.3M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35425.htm" title="宠物养不了该送哪里去无锡（养不了的宠物送去哪里）">宠物养不了该送哪里去无锡（养不了的宠物送去哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-28432.htm" title="动物疫苗多长时间内打一次比较好（动物疫苗注射后多久产生抗体）">动物疫苗多长时间内打一次比较好（动物疫苗注射后多久产生抗体）</a></li>
+                        <li class="py-2"><a href="/news/article-23774.htm" title="为什么给猫打疫苗打不进去了（给猫打疫苗推不进去）">为什么给猫打疫苗打不进去了（给猫打疫苗推不进去）</a></li>
                     </ul>
     </div>
 </div>
@@ -153,34 +180,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
