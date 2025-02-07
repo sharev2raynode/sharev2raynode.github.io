@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-51971.htm" />
+    <title>ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具</title>
+        <meta name="description" content="1.  启动并下载一个clickhouse-server, By default, starting above server instance will be run as default user" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-51971.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/19be1256fadba8773c41bb5538b186b7.webp" />
+        <meta property="og:release_date" content="2025-02-06T05:28:43" />
+    <meta property="og:updated_time" content="2025-02-06T05:28:43" />
+        <meta property="og:description" content="1.  启动并下载一个clickhouse-server, By default, starting above server instance will be run as default user" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                        <li>
+                                <a href="#">关于</a>
+                            </li>
+                            <li>
+                                <a href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>1.  启动并下载一个clickhouse-server, By default, starting above server instance will be run as default user without password.</p> <div class="cnblogs_code"> <pre>docker run -d --name ch-server --ulimit nofile=<span style="color: rgba(128, 0, 128, 1)">262144</span>:<span style="color: rgba(128, 0, 128, 1)">262144</span> -p <span style="color: rgba(128, 0, 128, 1)">8123</span>:<span style="color: rgba(128, 0, 128, 1)">8123</span> -p <span style="color: rgba(128, 0, 128, 1)">9000</span>:<span style="color: rgba(128, 0, 128, 1)">9000</span> -p <span style="color: rgba(128, 0, 128, 1)">9009</span>:<span style="color: rgba(128, 0, 128, 1)">9009</span> yandex/clickhouse-server<br>或者加一个Mount<br>docker run -d --name ch-server --ulimit nofile=262144:262144 -p 8123:8123 -p 9000:9000 -p 9009:9009  -v e:\\taobao:/usr/src/app/  yandex/clickhouse-server</pre> </div> <p>2. 打开浏览器, 输入, 查询结果就下载下来</p> <div class="cnblogs_code"> <pre>http:<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">localhost:8123/?query=SELECT%20%27Hello,%20ClickHouse!%27</span></pre> </div> <p>3. 进入docker 的CLI, server端安装在/etc/clickhouse-server 目录      用clickhouse-client来执行客户端命令</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/81f6a635f57417c4d9d82c9eee6009e9.jpg" alt="ClickHouse 对付单表上亿条记录分组查询秒出, OLAP应用秒杀其他数据库_在线工具"></p> <p> 4. 通过csv导入数据, 把本地目录Mount 到/usr/src/app目录</p> <div class="cnblogs_code"> <pre>clickhouse-client --query=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">INSERT INTO tblSale FORMAT CSV</span><span style="color: rgba(128, 0, 0, 1)">'</span> &lt; /usr/src/app/tblsale_in.csv</pre> </div> <p>csv必须是逗号分隔,而且DateTime格式必须是不带毫秒的, 不然会有下面的错误</p> <div class="cnblogs_code"> <pre>clickhouse-client --query=<span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">INSERT INTO tblSale FORMAT CSV</span><span style="color: rgba(128, 0, 0, 1)">'</span> &lt; /usr/src/app/<span style="color: rgba(0, 0, 0, 1)">tblsale_in.csv# Code: </span><span style="color: rgba(128, 0, 128, 1)">117</span>. DB::Exception: Expected end of line: (at row <span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">)  Row </span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">: Column </span><span style="color: rgba(128, 0, 128, 1)">0</span>,   name: id,          type: UInt32,   parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> Column </span><span style="color: rgba(128, 0, 128, 1)">1</span>,   name: prod_id,     type: UInt32,   parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> Column </span><span style="color: rgba(128, 0, 128, 1)">2</span>,   name: user_id,     type: UInt32,   parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> Column </span><span style="color: rgba(128, 0, 128, 1)">3</span>,   name: cnt,         type: UInt32,   parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> Column </span><span style="color: rgba(128, 0, 128, 1)">4</span>,   name: total_price, type: Float32,  parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">1.00</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> Column </span><span style="color: rgba(128, 0, 128, 1)">5</span>,   name: date,        type: DateTime, parsed text: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">2022-04-22 17:56:00</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> ERROR: garbage after DateTime: </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">.783&lt;CARRIAGE RETURN&gt;&lt;LINE FEED&gt;2,2,</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> ERROR: <span style="color: rgba(255, 0, 0, 1)"><strong>DateTime must be </strong></span></span><span style="color: rgba(255, 0, 0, 1)"><strong>in YYYY-MM-DD hh:mm:ss or NNNNNNNNNN (unix timestamp, exactly 10</strong></span><span style="color: rgba(0, 0, 0, 1)"><span style="color: rgba(255, 0, 0, 1)"><strong> digits) format.</strong></span>  : While executing CSVRowInputFormat: data </span><span style="color: rgba(0, 0, 255, 1)">for</span> INSERT was parsed <span style="color: rgba(0, 0, 255, 1)">from</span> stdin: (<span style="color: rgba(0, 0, 255, 1)">in</span> query: INSERT INTO tblSale FORMAT CSV). (INCORRECT_DATA)</pre> </div> <p>我的数据是从SQLServer导出的, 可以用BCP导出指定逗号分隔</p> <div class="cnblogs_code"> <pre>bcp <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">SELECT  [id],[prod_id],[user_id] ,[cnt],[total_price],Convert(varchar(20) , date, 120) as date FROM [taobao].[dbo].[tblSale_in]</span><span style="color: rgba(128, 0, 0, 1)">"</span> queryout tblSale_in.csv -c -t , -T -S .\SQLExpress</pre> </div> <p> </p> <p>当我导入的csv数据量很少时, 很快就成功了, 我再用有200w条数据时的csv, 执行这条命令是感觉就没有反应了.新打开一个CLI,进入 clickhouse-client 也没有反应了,不知道是否死掉了</p> <p>等待5分种后,出现这个错误, </p> <div class="cnblogs_code"> <pre>Code: <span style="color: rgba(128, 0, 128, 1)">209</span>. DB::NetException: Timeout exceeded <span style="color: rgba(0, 0, 255, 1)">while</span> reading <span style="color: rgba(0, 0, 255, 1)">from</span> socket (<span style="color: rgba(128, 0, 128, 1)">127.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.1</span>:<span style="color: rgba(128, 0, 128, 1)">9000</span>, <span style="color: rgba(128, 0, 128, 1)">300000</span> ms). (SOCKET_TIMEOUT)</pre> </div> <p> 但是第2天再导入的时候就算导入2000w数据也很快, 在1分钟以内, 不知道什么原因</p> <p> </p> <p>=========================以下是ClickHouse和SQLServer 2012的性能对比=====================================</p> <p>硬件: THINKPAD470, I5CPU,8G内存,机械硬盘</p> <div class="cnblogs_code"> <pre>--<span style="color: rgba(0, 0, 0, 1)">统计每日销量，2000w数据 SQLServer 17秒   SELECT Convert(varchar(</span><span style="color: rgba(128, 0, 128, 1)">8</span>) , date, <span style="color: rgba(128, 0, 128, 1)">112</span>) <span style="color: rgba(0, 0, 255, 1)">as</span> date,count(*) <span style="color: rgba(0, 0, 255, 1)">as</span><span style="color: rgba(0, 0, 0, 1)"> dayCnt   FROM [taobao].[dbo].[tblSale] group by Convert(varchar(</span><span style="color: rgba(128, 0, 128, 1)">8</span>) , date, <span style="color: rgba(128, 0, 128, 1)">112</span><span style="color: rgba(0, 0, 0, 1)">)    order by  Convert(varchar(</span><span style="color: rgba(128, 0, 128, 1)">8</span>) , date, <span style="color: rgba(128, 0, 128, 1)">112</span>) </pre> </div> <div class="cnblogs_code"> <pre>--<span style="color: rgba(0, 0, 0, 1)">按日统计数量, ClickHouse 2500w数据第一次用时8.35秒,第二次用时0.3秒 SELECT toYYYYMMDD(date), count(</span>*) <span style="color: rgba(0, 0, 255, 1)">as</span><span style="color: rgba(0, 0, 0, 1)"> dayCnt  FROM tblSale  group by toYYYYMMDD(date) order by toYYYYMMDD(date)</span></pre> </div> <p>继续导入2000w数据, 再用上面的SQL, clickhouse 4500w数据用时0.58秒, 6000w数据用时0.5秒 (第一次查询用1.24秒), 8000w数据用时0.68秒,1亿数据用时0.95秒</p> <p>=================== 结论==================================</p> <p>对于一般OLAP应用, 比如查用户的历史记录, 不要去搞分库分表, 那是条歪路,还是转到列数据库, 搞个大宽表, 尽量不要用Join, 单机都能达到这么高的性能.</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51445.htm">动物疫苗在哪里买便宜（动物疫苗在哪里买便宜些）</a></p>
+                                        <p>下一个：<a href="/news/article-51972.htm">动物疫苗龙头企业（动物疫苗行业龙头）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32691.htm" title="北京有免费领养狗狗的地方吗最近（北京哪里可以免费领养宠物狗）">北京有免费领养狗狗的地方吗最近（北京哪里可以免费领养宠物狗）</a></li>
+                        <li class="py-2"><a href="/news/article-35906.htm" title="兽医站给猫打疫苗有证吗（兽医店给猫***吗）">兽医站给猫打疫苗有证吗（兽医店给猫***吗）</a></li>
+                        <li class="py-2"><a href="/news/article-19194.htm" title="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架">Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</a></li>
+                        <li class="py-2"><a href="/news/article-20109.htm" title="宠物领养中心需要什么条件（宠物领养中心要钱吗）">宠物领养中心需要什么条件（宠物领养中心要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-clash-node.htm" title="11月21日19.6M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐">11月21日19.6M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-high-speed-nodes.htm" title="1月4日18.2M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">1月4日18.2M/S|Clash/SSR/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-31207.htm" title="宠物粮食品牌大全图片及价格 宠物粮食品牌大全图片及价格表">宠物粮食品牌大全图片及价格 宠物粮食品牌大全图片及价格表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-v2ray.htm" title="11月28日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐">11月28日19.1M/S|SSR/V2ray/Shadowrocket/Clash免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-35905.htm" title="动物医院布局设计及分析图（动物医院设计规范）">动物医院布局设计及分析图（动物医院设计规范）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-ssr-subscribe.htm" title="11月18日20.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐">11月18日20.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
