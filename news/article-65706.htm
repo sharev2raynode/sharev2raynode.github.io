@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-65706.htm" />
+    <title>vue项目打包后文件过大怎么办，如何优化加载速度</title>
+        <meta name="description" content="一、路由懒加载 constHome=()=&gt;import('./views/Home.vue');constMyInfo=()=&gt;import('./views/MyInfo.vue');" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-65706.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="vue项目打包后文件过大怎么办，如何优化加载速度" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/19be1256fadba8773c41bb5538b186b7.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:36:37" />
+    <meta property="og:updated_time" content="2025-03-02T09:36:37" />
+        <meta property="og:description" content="一、路由懒加载 constHome=()=&gt;import('./views/Home.vue');constMyInfo=()=&gt;import('./views/MyInfo.vue');" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue项目打包后文件过大怎么办，如何优化加载速度">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">vue项目打包后文件过大怎么办，如何优化加载速度</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <h2><a id="_0" rel="nofollow"></a>一、路由懒加载</h2> <pre><code class="prism language-js"><span class="token keyword">const</span><span class="token function-variable function">Home</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./views/Home.vue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span><span class="token function-variable function">MyInfo</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./views/MyInfo.vue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>在.babelrc中</p> <pre><code class="prism language-js"><span class="token string">"plugins"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"@babel/plugin-syntax-dynamic-import"</span><span class="token punctuation">]</span></code></pre> <h2><a id="_12" rel="nofollow"></a>二、分离公共代码</h2> <h3><a id="webpack_3x_13" rel="nofollow"></a>webpack 3.x</h3> <pre><code class="prism language-js"><span class="token keyword">new</span><span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'vendor'</span><span class="token punctuation">,</span>       minChunks<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// any required modules inside node_modules are extracted to vendor</span><span class="token comment">// 翻译注释：所有被依赖的模块，如果它在node_modules目录中，都会被抽离出来放进 vendor.js 中</span><span class="token comment">// 如果模块有一个路径，而且在路径中有 js 文件，并且这个模块是属于 node_modules 中的模块</span><span class="token comment">// 那这个模块就会被抽离出来，放进名为 vendor 的这个chunk</span><span class="token keyword">return</span><span class="token punctuation">(</span>           module<span class="token punctuation">.</span>resource<span class="token operator">&amp;&amp;</span><span class="token regex">/\.js$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span>resource<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>           module<span class="token punctuation">.</span>resource<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>             path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../node_modules'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// extract webpack runtime and module manifest to its own file in order to</span><span class="token comment">// prevent vendor hash from being updated whenever app bundle is updated</span><span class="token keyword">new</span><span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'manifest'</span><span class="token punctuation">,</span>       chunks<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'vendor'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre> <h3><a id="webpack_4x_39" rel="nofollow"></a>webpack 4.x</h3> <p>optimization与output同级</p> <pre><code class="prism language-js"> optimization<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     runtimeChunk<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'manifest'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>     splitChunks<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>       chunks<span class="token punctuation">:</span><span class="token string">'async'</span><span class="token punctuation">,</span>       minChunks<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>       maxAsyncRequests<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span>       maxInitialRequests<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span>       name<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>       cacheGroups<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>         vendor<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>           name<span class="token punctuation">:</span><span class="token string">'vendor'</span><span class="token punctuation">,</span><span class="token comment">// chunks 有三个可选值，”initial”, “async” 和 “all”. 分别对应优化时只选择初始的chunks，所需要的chunks 还是所有chunk</span>           chunks<span class="token punctuation">:</span><span class="token string">'initial'</span><span class="token punctuation">,</span>           priority<span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span>           reuseExistingChunk<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>           test<span class="token punctuation">:</span><span class="token regex">/[\\/]node_modules[\\/]/</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <h2><a id="css_67" rel="nofollow"></a>三、css懒加载</h2> <pre><code class="prism language-js"><span class="token keyword">const</span> MiniCssExtractPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"mini-css-extract-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>该插件需要webpack 4.x</p> <pre><code class="prism language-js"><span class="token comment">//sass</span><span class="token punctuation">{<!-- --></span>         test<span class="token punctuation">:</span><span class="token regex">/\.(sc|sa|c)ss$/</span><span class="token punctuation">,</span>         use<span class="token punctuation">:</span><span class="token punctuation">[</span>           MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'postcss-loader'</span><span class="token punctuation">,</span><span class="token string">'sass-loader'</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>plugins中：</p> <pre><code class="prism language-js"><span class="token keyword">new</span><span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token comment">// Options similar to the same options in webpackOptions.output</span><span class="token comment">// both options are optional</span>       filename<span class="token punctuation">:</span> devMode<span class="token operator">?</span><span class="token string">'css/[name].css'</span><span class="token punctuation">:</span><span class="token string">'css/[name].[hash].css'</span><span class="token punctuation">,</span>       chunkFilename<span class="token punctuation">:</span> devMode<span class="token operator">?</span><span class="token string">'css/[id].css'</span><span class="token punctuation">:</span><span class="token string">'css/[id].[hash].css'</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre> <h2><a id="CDN_97" rel="nofollow"></a>四、CDN引入</h2> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vue/2.5.21/vue.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/axios/0.18.0/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/vant/lib/vant.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre> <p>webpack.base.conf.js中</p> <pre><code class="prism language-js">externals<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">'vue'</span><span class="token punctuation">:</span><span class="token string">'Vue'</span><span class="token punctuation">,</span><span class="token string">'vue-router'</span><span class="token punctuation">:</span><span class="token string">'VueRouter'</span><span class="token punctuation">,</span><span class="token string">'vuex'</span><span class="token punctuation">:</span><span class="token string">'Vuex'</span><span class="token punctuation">,</span><span class="token string">'axios'</span><span class="token punctuation">:</span><span class="token string">'axios'</span><span class="token punctuation">,</span><span class="token string">'vant'</span><span class="token punctuation">:</span><span class="token string">'vant'</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>externals与output同级。</p> <p>删掉项目中import的这几个相关的，以及Vue.use()。eslint插件报错not defined的话，前面加个window，如window.VueRouter。</p> <h2><a id="jscss_121" rel="nofollow"></a>五、js压缩、css压缩</h2> <p>这个就不说了。</p> <p>推荐使用webpack 4.x，在production模式下有Tree Shaking和Scope Hoisting。<br /> 如果还是过大，可以使用下面插件：</p> <pre><code class="prism language-js"><span class="token keyword">const</span> BundleAnalyzerPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">;</span> plugins<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token keyword">new</span><span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre> <p>它会生成一个分析图，你的文件里包含了哪些文件，打包后，它会自动在浏览器中打开。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/cb24ad8e71f377205637ef73e1f426d7.jpg" alt="vue项目打包后文件过大怎么办，如何优化加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/fc440bdb6070a9bc3cbedc4359f86dd8.jpg" alt="vue项目打包后文件过大怎么办，如何优化加载速度"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65119.htm">东方动物医院在哪（东方动物医院营业时间）</a></p>
+                                        <p>下一个：<a href="/news/article-65707.htm">布偶难养（布偶难养在哪）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-node-subscribe.htm" title="12月19日21.4M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">12月19日21.4M/S|V2ray/Clash/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-v2ray.htm" title="11月25日21.3M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐">11月25日21.3M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-50392.htm" title="广州哪里有猫领养的地方呀（广州哪里有猫领养中心）">广州哪里有猫领养的地方呀（广州哪里有猫领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-clash.htm" title="12月3日19.2M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐">12月3日19.2M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐</a></li>
+                        <li class="py-2"><a href="/news/article-20109.htm" title="宠物领养中心需要什么条件（宠物领养中心要钱吗）">宠物领养中心需要什么条件（宠物领养中心要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-clash.htm" title="2月8日19.3M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">2月8日19.3M/S|SSR/Clash/Shadowrocket/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-57436.htm" title="@Transactional 详解">@Transactional 详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share-links.htm" title="2月18日23M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">2月18日23M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-19651.htm" title="宠物粮食价格高对策论文（宠物粮食问题）">宠物粮食价格高对策论文（宠物粮食问题）</a></li>
+                        <li class="py-2"><a href="/news/article-63884.htm" title="宠物领养证办理日期有要求吗知乎怎么写（宠物领养登记表）">宠物领养证办理日期有要求吗知乎怎么写（宠物领养登记表）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
