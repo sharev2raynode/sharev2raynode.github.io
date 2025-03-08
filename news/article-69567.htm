@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-69567.htm" />
+    <title>MySQL CONCAT_WS()函数的用途是什么？</title>
+        <meta name="description" content="基本上，MySQL CONCAT_WS()函数用于连接两个或多个字符串以及分隔符。此处，CONCAT_WS()中的关键字WS表示WITH SEPARATOR。我们可以将CONCAT_WS()函数发音为" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-69567.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="MySQL CONCAT_WS()函数的用途是什么？" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/59321ebf2187a6014710a147a25f1bea.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:05:54" />
+    <meta property="og:updated_time" content="2025-03-08T05:05:54" />
+        <meta property="og:description" content="基本上，MySQL CONCAT_WS()函数用于连接两个或多个字符串以及分隔符。此处，CONCAT_WS()中的关键字WS表示WITH SEPARATOR。我们可以将CONCAT_WS()函数发音为" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL CONCAT_WS()函数的用途是什么？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">MySQL CONCAT_WS()函数的用途是什么？</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>基本上，MySQL CONCAT_WS()函数用于连接两个或多个字符串以及分隔符。此处，CONCAT_WS()中的关键字WS表示WITH SEPARATOR。我们可以将CONCAT_WS()函数发音为带分隔符的串联函数。</p> <h2>语法</h2> <pre>CONCAT_WS(Separator,&nbsp;String1,String2,…,StringN)</pre> <p>在这里，CONCAT_WS函数的参数是Separator和需要与该分隔符一起作为单个字符串连接的字符串。除数值外，分隔符必须用引号引起来。</p> <h2>示例</h2> <pre>mysql&gt;&nbsp;SELECT&nbsp;CONCAT_WS('&nbsp;','New',&nbsp;'Delhi');  +-------------------------------+ |&nbsp;CONCAT_WS('&nbsp;','New',&nbsp;'Delhi')&nbsp;| +-------------------------------+ |&nbsp;New&nbsp;Delhi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-------------------------------+  1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>在上面的示例中，我们可以看到字符串“”（即空格）用作分隔符，并插入到需要连接的两个字符串（“新”和“德里”）之间。</p> <pre>mysql&gt;&nbsp;SELECT&nbsp;CONCAT_WS('&nbsp;is&nbsp;our&nbsp;','Delhi','Capital');  +-----------------------------------------+ |&nbsp;CONCAT_WS('&nbsp;is&nbsp;our&nbsp;','Delhi','Capital')&nbsp;| +-----------------------------------------+ |&nbsp;Delhi&nbsp;is&nbsp;our&nbsp;Capital&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-----------------------------------------+  1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>在上面的示例中，我们可以看到字符串'是我们的'用作分隔符，并插入到两个字符串之间，德里字符串和大写字母需要串联。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68923.htm">重庆宠物领养吧百度贴吧（重庆宠物领养中心宠物领养）</a></p>
+                                        <p>下一个：<a href="/news/article-69568.htm">附近免费领养狗狗的地方（附近免费领养狗狗的地方有哪些）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39957.htm" title="私自销售兽用疫苗处罚（私自销售兽用疫苗处罚依据）">私自销售兽用疫苗处罚（私自销售兽用疫苗处罚依据）</a></li>
+                        <li class="py-2"><a href="/news/article-66358.htm" title="济南宠物免费领养中心在哪 济南宠物免费领养中心在哪里">济南宠物免费领养中心在哪 济南宠物免费领养中心在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-55760.htm" title="开个宠物食品店需要什么证 开个宠物食品店需要什么证件">开个宠物食品店需要什么证 开个宠物食品店需要什么证件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-v2ray-subscribe.htm" title="1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月26日18.2M/S|Clash/V2ray/SSR/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-42933.htm" title="宠物领养协议有法律效力吗多少钱一份 宠物领养协议有法律效力吗多少钱一份">宠物领养协议有法律效力吗多少钱一份 宠物领养协议有法律效力吗多少钱一份</a></li>
+                        <li class="py-2"><a href="/news/article-58012.htm" title="动物疫控中心可以打疫苗吗多少钱（动物防疫中心可以打疫苗吗）">动物疫控中心可以打疫苗吗多少钱（动物防疫中心可以打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-high-speed-nodes.htm" title="2月17日18.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">2月17日18.4M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share-links.htm" title="2月18日23M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">2月18日23M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-clash-subscribe.htm" title="3月4日20M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">3月4日20M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-38989.htm" title="创建型设计模式: 单例模式(Singleton Pattern)">创建型设计模式: 单例模式(Singleton Pattern)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
