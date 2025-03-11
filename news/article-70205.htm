@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-70205.htm" />
+    <title>Golang开发gRPC服务详解</title>
+        <meta name="description" content="gRPC是Google发起的一个开源RPC框架，使用HTTP/2传输协议，使用Protocol Buffers编码协议，相比RESTful框架的程序性能提高不少，而且当前流行的编程语言基本都已经支持。" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-70205.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Golang开发gRPC服务详解" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/19be1256fadba8773c41bb5538b186b7.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:45:15" />
+    <meta property="og:updated_time" content="2025-03-09T09:45:15" />
+        <meta property="og:description" content="gRPC是Google发起的一个开源RPC框架，使用HTTP/2传输协议，使用Protocol Buffers编码协议，相比RESTful框架的程序性能提高不少，而且当前流行的编程语言基本都已经支持。" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Golang开发gRPC服务详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">Golang开发gRPC服务详解</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>gRPC是Google发起的一个开源RPC框架，使用HTTP/2传输协议，使用Protocol Buffers编码协议，相比RESTful框架的程序性能提高不少，而且当前流行的编程语言基本都已经支持。</p> <p>Golang开发gRPC应用程序的套路也已经很清晰，这篇文章就来做一个简单的介绍，算是入门。</p> </h1> <p>这个工具也称为proto编译器，可以用来生成各种开发语言使用proto协议的代码。</p> <p>下载地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/protocolbuffers/protobuf/releases"  target="_blank" rel="nofollow">https://github.com/protocolbuffers/protobuf/releases</a></p> <p>一般下载最新版本就行，注意要符合自己当前的操作系统。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/de85a9ab13fbc712184dbb19a2978315.jpg" alt="Golang开发gRPC服务详解"></p> <p>解压后里边有个<em>protoc.exe</em> ，拷贝到<em>GOPATH</em> 的 bin 目录下，我这里就是<em>C:/Users/PC-001/go/bin</em> ，PC-<em>001</em> 是登录当前操作系统的用户名，需要换成你自己的。<em>GOPATH</em> 可以通过执行<em>go env</em> 查看到。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8ce5003d244d42eba4cd01da60648c45.jpg" alt="Golang开发gRPC服务详解"></p> <p>一般都是把<em>GOPATH</em> 的<em>bin</em> 目录添加到环境变量的<em>PATH</em> 变量中，如果没有，请自行添加上。</p> </h1> <p>执行如下命令，会在<em>GOPATH</em> 的<em>bin</em> 目录下生成两个可执行文件：protoc-gen-go.exe 和 protoc-gen-go-grpc.exe。这两个插件可以用来生成Golang版本的proto协议代码和gRPC代理代码。</p> <pre><code>go install google.golang.org/protobuf/cmd/protoc-gen-go go install google.golang.org/grpc/cmd/protoc-gen-go-grpc</code></pre> </h1> <p>proto文件是符合Protocol Buffers语言规范的数据交换协议文件，就像以前WebService定义服务时使用的XML文件。现在一般都是用proto3了，这里创建一个名为<em>hello.proto</em> 的文件，放到项目的proto目录下：</p> <pre><code>syntax = "proto3";  option go_package="/proto";  package Business;  service Hello {   rpc Say (SayRequest) returns (SayResponse); }  message SayResponse {   string Message = 1; }  message SayRequest {   string Name = 1; }</code></pre> <p>这个协议很简单，有个名字为Hello的服务，提供一个名字为Say的rpc方法，这个方法有输入输出，输入信息中有一个名为Name的参数，输出信息中有一个名为Message的返回值。</p> </h1> <p>在项目根目录中执行如下命令，会在proto目录下生成两个文件：hello.pb.go 和 hello_grpc.pb.go。</p> <pre><code>protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative proto/hello.proto</code></pre> <p>hello.pb.go 中是输入输出数据类型的Golang定义，hello_grpc.pb.go 中是客户端和服务端的gRPC代理类型和方法的Golang定义。</p> <p>也可以将文件生成到别的目录中，比如修改<em>proto</em> 文件中<em>go_package</em> 的配置为：</p> <pre><code>option go_package="/business";</code></pre> <p>然后执行下面的命令，会生成到项目下的business目录中：</p> <pre><code>protoc --go_out=.  --go-grpc_out=. proto/hello.proto</code></pre> <p>具体这个命令还有哪些参数，可以执行<em>protoc -help</em> 去探索下，这里就不罗嗦了。</p> </h1> <p>这里先上代码：</p> <pre><code>package main  import ( 	"context" 	"fmt" 	"grpcdemo/proto" 	"net"  	"google.golang.org/grpc" )  type server struct { 	proto.UnimplementedHelloServer }  func (s *server) Say(ctx context.Context, req *proto.SayRequest) (*proto.SayResponse, error) { 	fmt.Println("request:", req.Name) 	return &amp;proto.SayResponse{Message: "Hello " + req.Name}, nil }  func main() { 	listen, err := net.Listen("tcp", ":8001") 	if err != nil { 		fmt.Printf("failed to listen: %v", err) 		return 	} 	s := grpc.NewServer() 	proto.RegisterHelloServer(s, &amp;server{}) 	//reflection.Register(s)  	defer func() { 		s.Stop() 		listen.Close() 	}()  	fmt.Println("Serving 8001...") 	err = s.Serve(listen) 	if err != nil { 		fmt.Printf("failed to serve: %v", err) 		return 	} }</code></pre> <p>整个过程如下：先定义一个名为 server 的类型，它去实现hello_grpc.pb.go中生成的HelloServer接口；然后通过grpc.NewServer创建一个gRPC服务器；然后将server类型的实例注册到这个gRPC服务器；最后让这个gRPC服务器在某个本地网络端口监听上开始接受客户端请求。</p> <p>代码中注释了一行：<em>reflection.Register(s)</em>  它是注册了一个特殊的service，能让外部获得server中已注册的服务和方法。这对于开发时可能比较有用，具体细节可以看这里：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md"  target="_blank" rel="nofollow">https://github.com/grpc/grpc-go/blob/master/Documentation/server-reflection-tutorial.md</a></p> <p>如果直接粘贴这段代码的话，会有很多包没有引用进来，可以通过<em>go get</em> 获取这些包，也可以执行命令：<em>go mod tidy</em> 来引入需要的包。</p> <p>这里边还import了一个<em>grpcdemo/proto</em> ，这个是我这边项目的mod是grpcdemo，gRPC代理程序的package是proto，如果你的不一样，需要修改下。</p> </h1> <p>访问gRPC服务也是通过hello_grpc.pb.go中生成的方法，直接上代码：</p> <pre><code class="language-go">package main  import ( 	"bufio" 	"context" 	"fmt" 	"grpchello/proto" 	"os"  	"google.golang.org/grpc" 	"google.golang.org/grpc/credentials/insecure" )  func main() {  	var serviceHost = "127.0.0.1:8001"  	conn, err := grpc.Dial(serviceHost, grpc.WithTransportCredentials(insecure.NewCredentials())) 	if err != nil { 		fmt.Println(err) 	} 	defer conn.Close()  	client := proto.NewHelloClient(conn) 	rsp, err := client.Say(context.TODO(), &amp;proto.SayRequest{ 		Name: "BOSIMA", 	})  	if err != nil { 		fmt.Println(err) 	}  	fmt.Println(rsp)  	fmt.Println("按回车键退出程序...") 	in := bufio.NewReader(os.Stdin) 	_, _, _ = in.ReadLine() }</code></pre> <p>上边服务端程序的监听端口指定的<em>8001</em>，所以这里先创建了一个到<em>127.0.0.1:8001</em> 的连接；然后使用这个连接创建指定服务的客户端<em>proto.NewHelloClient(conn)</em> ；然后使用这个客户端调用相应的方法。</p> <p>hello_grpc.pb.go 已经生成了创建客户端的函数以及调用方法的函数，开发人员直接调用就好了。</p> </h1> <p>可以使用<em>go run xxx.go</em> 来编译并运行程序。这里为了方便测试，先使用<em>go build</em> 将它们编译为exe，然后再双击运行。实际运行效果如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ac409a48effd07561dfe52e6952e6ec0.jpg" alt="Golang开发gRPC服务详解"></p> <hr/> <p>以上就是本文的主要内容了，protoc-gen-go  和 protoc-gen-go-grpc 这两个插件都是gPRC官方提供的，官方也提供了其它多种语言的代理生成插件，其它框架或者语言开发的gRPC程序，只要符合gRPC规范，就能实现相互之间的互相访问。</p> <p>完整代码示例已经上传到Github：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/bosima/go-demo/tree/main/grpc-hello"  target="_blank" rel="nofollow">https://github.com/bosima/go-demo/tree/main/grpc-hello</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69568.htm">附近免费领养狗狗的地方（附近免费领养狗狗的地方有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-70206.htm">猫疫苗全部打完多少钱一针（猫所有疫苗打完多少钱）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-58439.htm" title="动物疫苗使用方法（动物疫苗接种方法有哪些）">动物疫苗使用方法（动物疫苗接种方法有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-41935.htm" title="动物疫苗使用前的注意事项包括什么（动物疫苗使用时的注意事项有哪些）">动物疫苗使用前的注意事项包括什么（动物疫苗使用时的注意事项有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-37011.htm" title="宠物回收平台有哪些好的简单介绍">宠物回收平台有哪些好的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-55218.htm" title="学生没钱怎么开网店卖东西赚钱呢（学生没钱怎么开网店卖东西赚钱呢）">学生没钱怎么开网店卖东西赚钱呢（学生没钱怎么开网店卖东西赚钱呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-node-share.htm" title="2月20日19.1M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">2月20日19.1M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-clash.htm" title="1月18日18.1M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">1月18日18.1M/S|V2ray/Shadowrocket/Clash/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-67648.htm" title="动物园兽医师的职责是什么（动物园兽医岗位职责）">动物园兽医师的职责是什么（动物园兽医岗位职责）</a></li>
+                        <li class="py-2"><a href="/news/article-43427.htm" title="小猫要和主人一起睡觉（猫咪要和我一起睡）">小猫要和主人一起睡觉（猫咪要和我一起睡）</a></li>
+                        <li class="py-2"><a href="/news/article-71527.htm" title="宠物领养协议书范本最新图片（宠物领养协议是否有法律效力）">宠物领养协议书范本最新图片（宠物领养协议是否有法律效力）</a></li>
+                        <li class="py-2"><a href="/news/article-70205.htm" title="Golang开发gRPC服务详解">Golang开发gRPC服务详解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
