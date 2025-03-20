@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-76209.htm" />
+    <title>SpringBoot之HandlerInterceptor拦截器的使用</title>
+        <meta name="description" content="拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。 我仔细想了想 这里我分三篇博客来介绍HandlerInter" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-76209.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="SpringBoot之HandlerInterceptor拦截器的使用" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/61e02fb99ebd542948d2811a84e1d562.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:12:22" />
+    <meta property="og:updated_time" content="2025-03-18T06:12:22" />
+        <meta property="og:description" content="拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。 我仔细想了想 这里我分三篇博客来介绍HandlerInter" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot之HandlerInterceptor拦截器的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">SpringBoot之HandlerInterceptor拦截器的使用</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> </h1> <p>拦截器我想大家都并不陌生，最常用的登录拦截、或是权限校验、或是防重复提交、或是根据业务像12306去校验购票时间,总之可以去做很多的事情。<br /> 我仔细想了想<br /> 这里我分三篇博客来介绍HandlerInterceptor的使用，从基本的使用、到自定义注解、最后到读取body中的流解决无法多次读取的问题。</p> <h2><a id="1_4" rel="nofollow"></a>1、定义实现类</h2> <p>定义一个Interceptor 非常简单方式也有几种，我这里简单列举两种<br /> 1、类要实现Spring 的HandlerInterceptor 接口<br /> 2、类继承实现了HandlerInterceptor 接口的类，例如 已经提供的实现了HandlerInterceptor 接口的抽象类HandlerInterceptorAdapter</p> <blockquote> <p>这里博主用的是第二种方法继承HandlerInterceptorAdapter</p> </blockquote> <h2><a id="2HandlerInterceptor_10" rel="nofollow"></a>2、HandlerInterceptor方法介绍</h2> <pre><code> 	boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) 			throws Exception;  	void postHandle( 			HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) 			throws Exception;  	void afterCompletion( 			HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) 			throws Exception;</code></pre> <ul> <li>preHandle：在业务处理器处理请求之前被调用。预处理，可以进行编码、安全控制、权限校验等处理；</li> <li>postHandle：在业务处理器处理请求执行完成后，生成视图之前执行。后处理（调用了Service并返回ModelAndView，但未进行页面渲染），有机会修改ModelAndView （这个博主就基本不怎么用了）；</li> <li>afterCompletion：在DispatcherServlet完全处理完请求后被调用，可用于清理资源等。返回处理（已经渲染了页面）；</li> </ul> <p>接下来让我们来实现一个登陆 and 访问权限校验的拦截器吧</p> <h2><a id="_31" rel="nofollow"></a>拦截器实现</h2> <ul> <li>新建TestFilter</li> </ul> <pre><code>package com.xxx.core.filter;  import com.xxx.common.exception.FastRuntimeException; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import org.springframework.web.servlet.ModelAndView; import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse;   public class TestFilter extends HandlerInterceptorAdapter { 	private final Logger logger = LoggerFactory.getLogger(TestFilter.class); 	@Override 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) 			throws Exception { 		logger.info("request请求地址path[{}] uri[{}]", request.getServletPath(),request.getRequestURI()); 		//request.getHeader(String) 从请求头中获取数据 		//从请求头中获取用户token（登陆凭证根据业务而定） 		Long userId= getUserId(request.getHeader("H-User-Token")); 		if (userId != null &amp;&amp; checkAuth(userId,request.getRequestURI())){ 			return true; 		} 		//这里的异常是我自定义的异常，系统抛出异常后框架捕获异常然后转为统一的格式返回给前端， 其实这里也可以返回false 		throw new FastRuntimeException(20001,"No access"); 	}  	/** 	 * 根据token获取用户ID 	 * @param userToken 	 * @return 	 */ 	private Long getUserId(String userToken){ 		Long userId = null; 		return userId; 	}  	/** 	 * 校验用户访问权限 	 * @param userId 	 * @param requestURI 	 * @return 	 */ 	private boolean checkAuth(Long userId,String requestURI){ 		return true; 	}  	@Override 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, 						   ModelAndView modelAndView) throws Exception {}  	@Override 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) 			throws Exception {} }</code></pre> <ul> <li>新建WebAppConfigurer 实现WebMvcConfigurer接口</li> </ul> <blockquote> <p>其实以前都是继承WebMvcConfigurerAdapter类 不过springBoot2.0以上 WebMvcConfigurerAdapter 方法过时，有两种替代方案：<br /> 1、继承WebMvcConfigurationSupport<br /> 2、实现WebMvcConfigurer<br /> 但是继承WebMvcConfigurationSupport会让Spring-boot对mvc的自动配置失效。根据项目情况选择。现在大多数项目是前后端分离，并没有对静态资源有自动配置的需求所以继承WebMvcConfigurationSupport也未尝不可。</p> </blockquote> <pre><code>@Configuration public class WebAppConfigurer implements WebMvcConfigurer {      @Override     public void addInterceptors(InterceptorRegistry registry) {         // 可添加多个         registry.addInterceptor(new TestFilter()).addPathPatterns("/**");     }      .... }</code></pre> <blockquote> <p>其实下面还有很多方法我这里就省略了，过滤器可以添加多个，可以指定Path，这里的/**是对所有的请求都做拦截。</p> </blockquote> <p>是否感觉配置这个地址是不特别方便？下一篇博客介绍2.0版本引入注解来协助完成一系列的拦截任务。<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81738940"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（二）自定义注解</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81875705"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（三）获取请求参数解决java.io.IOException: Stream closed</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhibo_lv/article/details/81905300"  rel="nofollow">SpringBoot之HandlerInterceptor拦截器的使用 ——（四）防重复提交</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75538.htm">SpringBoot系列: url重定向和转发</a></p>
+                                        <p>下一个：<a href="/news/article-76210.htm">成都宠物托运公司哪家比较好一点（成都宠物物流公司）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-clash-windows.htm" title="1月19日22.5M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月19日22.5M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-v2ray.htm" title="1月15日19.5M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月15日19.5M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-51445.htm" title="动物疫苗在哪里买便宜（动物疫苗在哪里买便宜些）">动物疫苗在哪里买便宜（动物疫苗在哪里买便宜些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-28-clash-windows.htm" title="2月28日19M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">2月28日19M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-v2ray.htm" title="3月14日20.5M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月14日20.5M/S|Clash/V2ray/Shadowrocket/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-clash-node.htm" title="3月2日22.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月2日22.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-64488.htm" title="go-micro开发RPC服务的方法及其运行原理">go-micro开发RPC服务的方法及其运行原理</a></li>
+                        <li class="py-2"><a href="/news/article-66358.htm" title="济南宠物免费领养中心在哪 济南宠物免费领养中心在哪里">济南宠物免费领养中心在哪 济南宠物免费领养中心在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-40943.htm" title="深圳宠物狗领养网站 深圳宠物狗领养网站有哪些">深圳宠物狗领养网站 深圳宠物狗领养网站有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-70206.htm" title="猫疫苗全部打完多少钱一针（猫所有疫苗打完多少钱）">猫疫苗全部打完多少钱一针（猫所有疫苗打完多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>

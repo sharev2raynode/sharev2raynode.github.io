@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-76870.htm" />
+    <title>ES6基础语法之函数介绍_基础知识</title>
+        <meta name="description" content="一、函数参数的扩展 ES6支持参数的默认值：  function fn(name,age,sex="男")  {  	console.log(`大家好,我是${name},性别${sex},今年${a" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-76870.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="ES6基础语法之函数介绍_基础知识" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/95cb856479cb307b5039b21360189fb3.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:09:18" />
+    <meta property="og:updated_time" content="2025-03-19T09:09:18" />
+        <meta property="og:description" content="一、函数参数的扩展 ES6支持参数的默认值：  function fn(name,age,sex="男")  {  	console.log(`大家好,我是${name},性别${sex},今年${a" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ES6基础语法之函数介绍_基础知识">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">ES6基础语法之函数介绍_基础知识</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2>一、函数参数的扩展</h2> <p>ES6支持参数的默认值：</p> <div class="ay1code"> <pre class="brush:js;">function fn(name,age,sex="男")  {  	console.log(`大家好,我是${name},性别${sex},今年${age}岁!`);  }  fn("刘德华",45); //大家好,我是刘德华,性别男,今年45岁!</pre> </div> <p>传递undefined,取默认值：</p> <div class="ay1code"> <pre class="brush:js;">function fn(name,sex="男",age)  {  	console.log(`大家好,我是${name},性别${sex},今年${age}岁!`);  }  fn("刘德华",undefined,45); //大家好,我是刘德华,性别男,今年45岁!</pre> </div> <p>不定参数:不定参数用来表示不确定参数个数：</p> <div class="ay1code"> <pre class="brush:js;">function Add(...items)  {  	// let sum = 0;  	// for(let item of items)  	// {  	// 	sum += item;  	// }  	// return sum;  	  	let sum = 0;  	for(var i = 0;i&lt; items.length;i++)  	{  		sum += items[i];  	}  	return sum;  }  let result1 = Add(1,2,3);  let result2 = Add(1,3,5,7,9);  console.log(result1); //6  console.log(result2); //25</pre> </div> <h2>二、箭头函数</h2> <p>箭头函数提供了一种更加简洁的函数书写方式,基本语法是：参数 =&gt; 函数体</p> <p>没有参数的函数(参数部分需要有一对空括号)：</p> <div class="ay1code"> <pre class="brush:js;">let f = ()=&gt;{console.log("hello,world!")}  f(); //hello,world</pre> </div> <p>等价于：</p> <div class="ay1code"> <pre class="brush:js;">function f()  {  	console.log("hello,world!");  }  f(); //hello,world</pre> </div> <p>只有一个参数的函数(参数部分不需要括号)：</p> <div class="ay1code"> <pre class="brush:js;">let f = num =&gt;{  	if(num%2 == 0)  		return "偶数";  	else  		return "奇数";  }  console.log(f(50)); //偶数</pre> </div> <p>有多个参数的函数(参数部分需要括号)：</p> <div class="ay1code"> <pre class="brush:js;">let f = (a,b)=&gt;{  	let c = a+b;  	return c;  }  console.log(f(2,3)); //5</pre> </div> <p>当只有一行语句，并且需要返回结果时，可以省略 {} , 结果会自动返回：</p> <div class="ay1code"> <pre class="brush:js;">let f = (a,b) =&gt; a+b;  console.log(f(2,3)); // 5</pre> </div> <p>当箭头函数要返回对象的时候，为了区分于代码块，要用 () 将对象包裹起来：</p> <div class="ay1code"> <pre class="brush:js;">let f = (id,name) =&gt; {id: id, name: name};  let obj = f("001","刘德华");  // 报错  console.log(obj);</pre> </div> <div class="ay1code"> <pre class="brush:js;">let f = (id,name) =&gt; {  	return {id: id, name: name};  };  let obj = f("001","刘德华");    console.log(obj); //{id:"001",name:"刘德华"}</pre> </div> <div class="ay1code"> <pre class="brush:js;">let f = (id,name) =&gt; ({id: id, name: name});  let obj = f("001","刘德华");  console.log(obj); //{id:"001",name:"刘德华"}</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76210.htm">成都宠物托运公司哪家比较好一点（成都宠物物流公司）</a></p>
+                                        <p>下一个：<a href="/news/article-76871.htm">狗狗领养平台公众号（狗狗领养平台公众号有哪些）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55761.htm" title="宠物店里狗粮都是哪里批发的啊（宠物店的狗粮都是从哪里来的）">宠物店里狗粮都是哪里批发的啊（宠物店的狗粮都是从哪里来的）</a></li>
+                        <li class="py-2"><a href="/news/article-64488.htm" title="go-micro开发RPC服务的方法及其运行原理">go-micro开发RPC服务的方法及其运行原理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-shadowrocket-node.htm" title="1月16日18M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">1月16日18M/S|Clash/Shadowrocket/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-53032.htm" title="宠物粮食批发市场地址在哪里（宠物粮食批发市场地址在哪里啊）">宠物粮食批发市场地址在哪里（宠物粮食批发市场地址在哪里啊）</a></li>
+                        <li class="py-2"><a href="/news/article-54661.htm" title="广州宠物领养平台官网电话号码是多少（广州领养宠物救助站）">广州宠物领养平台官网电话号码是多少（广州领养宠物救助站）</a></li>
+                        <li class="py-2"><a href="/news/article-74852.htm" title="上海动物疫苗接种地 上海动物疫苗接种地点">上海动物疫苗接种地 上海动物疫苗接种地点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-free-ssr-node.htm" title="1月11日22.9M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月11日22.9M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-high-speed-nodes.htm" title="2月15日21.5M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">2月15日21.5M/S|Shadowrocket/Clash/SSR/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-67648.htm" title="动物园兽医师的职责是什么（动物园兽医岗位职责）">动物园兽医师的职责是什么（动物园兽医岗位职责）</a></li>
+                        <li class="py-2"><a href="/news/article-46903.htm" title="淮北小动物救助站（淮北小动物救助站电话）">淮北小动物救助站（淮北小动物救助站电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>

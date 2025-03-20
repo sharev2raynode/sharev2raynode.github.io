@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-77566.htm" />
+    <title>tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose</title>
+        <meta name="description" content="文章目录  tf.keras.layers.Conv1D tf.keras.layers.Conv1DTranspose    tf.keras.layers.Conv1D(     filters," />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-77566.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/e55fce3858558b9934eda6d37dd52519.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:00:47" />
+    <meta property="og:updated_time" content="2025-03-20T10:00:47" />
+        <meta property="og:description" content="文章目录  tf.keras.layers.Conv1D tf.keras.layers.Conv1DTranspose    tf.keras.layers.Conv1D(     filters," />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#tfkeraslayersConv1D_1" rel="nofollow">tf.keras.layers.Conv1D</a></li> <li><a href="#tfkeraslayersConv1DTranspose_62" rel="nofollow">tf.keras.layers.Conv1DTranspose</a></li> </ul> </div> </h1> <pre><code class="prism language-python">tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Conv1D<span class="token punctuation">(</span>     filters<span class="token punctuation">,</span> kernel_size<span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'valid'</span><span class="token punctuation">,</span> data_format<span class="token operator">=</span><span class="token string">'channels_last'</span><span class="token punctuation">,</span>     dilation_rate<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> groups<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> use_bias<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>     kernel_initializer<span class="token operator">=</span><span class="token string">'glorot_uniform'</span><span class="token punctuation">,</span> bias_initializer<span class="token operator">=</span><span class="token string">'zeros'</span><span class="token punctuation">,</span>     kernel_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> bias_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> activity_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>     kernel_constraint<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> bias_constraint<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token operator">**</span>kwargs <span class="token punctuation">)</span> </code></pre> <p>从这个函数原型可以知道各个参数的默认值。</p> <p>When using this layer as the first layer in a model, provide an input_shape argument (tuple of integers or None, e.g. (10, 128) for sequences of 10 vectors of 128-dimensional vectors, or (None, 128) for variable-length sequences of 128-dimensional vectors.<br /> 如果Conv1D是第一层，需要输入input_shape，可以是（10,128），即10个128维的向量，也可以是 (None, 128) ，表示可变个数个128维向量。</p> <pre><code class="prism language-python"><span class="token comment"># 10个时间步长，每个时间由128维向量表示，batch_size是4</span> input_shape <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span> x <span class="token operator">=</span> tf<span class="token punctuation">.</span>random<span class="token punctuation">.</span>normal<span class="token punctuation">(</span>input_shape<span class="token punctuation">)</span> y <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Conv1D<span class="token punctuation">(</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">,</span>input_shape<span class="token operator">=</span>input_shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> </code></pre> <p>输出： （4, 8，32）</p> <pre><code class="prism language-python"><span class="token comment"># [4, 7]是扩展的batch_size，不管batch_size是不是两维，输入4维的时候，前两维都被认为是batch_size，10是时间，128维向量</span> input_shape <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">)</span> x <span class="token operator">=</span> tf<span class="token punctuation">.</span>random<span class="token punctuation">.</span>normal<span class="token punctuation">(</span>input_shape<span class="token punctuation">)</span> y <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Conv1D<span class="token punctuation">(</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">,</span> input_shape<span class="token operator">=</span>input_shape<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>y<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> </code></pre> <p>输出：（4, 7，8， 32）</p> <p><strong>Input shape:</strong><br /> 3+D tensor with shape: <strong>batch_shape</strong> + (<strong>steps</strong>, <strong>input_dim</strong>)<br /><strong>Output shape:</strong><br /> 3+D tensor with shape: <strong>batch_shape</strong> + (<strong>new_steps</strong>, <strong>filters</strong>) steps value might have changed due to padding or strides.</p> <p>kernel_initializer和bias_initializer都是需要初始化方式的，所以默认就有，如果不初始化，那filter就没有值，不能计算。<br /> kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,层的参数，偏置和激活函数都可以添加惩罚项。</p> <pre><code class="prism language-python">keras<span class="token punctuation">.</span>regularizers<span class="token punctuation">.</span>l1<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">)</span> keras<span class="token punctuation">.</span>regularizers<span class="token punctuation">.</span>l2<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token punctuation">)</span> keras<span class="token punctuation">.</span>regularizers<span class="token punctuation">.</span>l1_l2<span class="token punctuation">(</span>l1<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">,</span> l2<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">)</span> </code></pre> <p>参数就是下图中的λ。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221225/7bf4672d8df789c5f3e707fd8439772e.jpg" alt="tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose"><br /> 任何输入一个权重矩阵、返回一个损失贡献张量的函数，都可以用作正则化器。例如自定义：</p> <pre><code class="prism language-python"><span class="token keyword">from</span> keras <span class="token keyword">import</span> backend <span class="token keyword">as</span> K  <span class="token keyword">def</span> <span class="token function">l1_reg</span><span class="token punctuation">(</span>weight_matrix<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">return</span> <span class="token number">0.01</span> <span class="token operator">*</span> K<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>K<span class="token punctuation">.</span><span class="token builtin">abs</span><span class="token punctuation">(</span>weight_matrix<span class="token punctuation">)</span><span class="token punctuation">)</span>  model<span class="token punctuation">.</span>add<span class="token punctuation">(</span>Dense<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> input_dim<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">,</span>                 kernel_regularizer<span class="token operator">=</span>l1_reg<span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> </h1> <p>函数原型：</p> <pre><code class="prism language-python">tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Conv1DTranspose<span class="token punctuation">(</span>     filters<span class="token punctuation">,</span> kernel_size<span class="token punctuation">,</span> strides<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token string">'valid'</span><span class="token punctuation">,</span> output_padding<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>     data_format<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> dilation_rate<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> use_bias<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>     kernel_initializer<span class="token operator">=</span><span class="token string">'glorot_uniform'</span><span class="token punctuation">,</span> bias_initializer<span class="token operator">=</span><span class="token string">'zeros'</span><span class="token punctuation">,</span>     kernel_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> bias_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> activity_regularizer<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>     kernel_constraint<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> bias_constraint<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token operator">**</span>kwargs <span class="token punctuation">)</span> </code></pre> <p>Input shape:<br /> 3D tensor with shape: (batch_size, steps, channels)</p> <p>Output shape:<br /> 3D tensor with shape: (batch_size, new_steps, filters) If output_padding is specified:</p> <pre><code class="prism language-python">new_timesteps <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>timesteps <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> strides <span class="token operator">+</span> kernel_size <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> padding <span class="token operator">+</span> output_padding<span class="token punctuation">)</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76871.htm">狗狗领养平台公众号（狗狗领养平台公众号有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-77567.htm">netty系列之:netty中的自动解码器ReplayingDecoder_在线工具</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76871.htm" title="狗狗领养平台公众号（狗狗领养平台公众号有哪些）">狗狗领养平台公众号（狗狗领养平台公众号有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-v2ray.htm" title="3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-v2ray.htm" title="1月15日19.5M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">1月15日19.5M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-77566.htm" title="tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose">tf.keras.layers.Conv1D和tf.keras.layers.Conv1DTranspose</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-subscribe-node.htm" title="2月14日18.1M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">2月14日18.1M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-42933.htm" title="宠物领养协议有法律效力吗多少钱一份 宠物领养协议有法律效力吗多少钱一份">宠物领养协议有法律效力吗多少钱一份 宠物领养协议有法律效力吗多少钱一份</a></li>
+                        <li class="py-2"><a href="/news/article-58012.htm" title="动物疫控中心可以打疫苗吗多少钱（动物防疫中心可以打疫苗吗）">动物疫控中心可以打疫苗吗多少钱（动物防疫中心可以打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-40943.htm" title="深圳宠物狗领养网站 深圳宠物狗领养网站有哪些">深圳宠物狗领养网站 深圳宠物狗领养网站有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-57436.htm" title="@Transactional 详解">@Transactional 详解</a></li>
+                        <li class="py-2"><a href="/news/article-48306.htm" title="动物疫苗现状分析 动物疫苗现状分析报告">动物疫苗现状分析 动物疫苗现状分析报告</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
