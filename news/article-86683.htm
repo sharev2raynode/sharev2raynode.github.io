@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-86683.htm" />
+    <title>ForkJoin详解及应用</title>
+        <meta name="description" content="ForkJoin是由JDK1.7后提供多线并发处理框架。主要用于并行计算中，和 MapReduce 原理类似，都是把大的计算任务拆分成多个小任务并行计算。  应用场景 计算1~10的和，每组计算3个，" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-86683.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="ForkJoin详解及应用" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/95cb856479cb307b5039b21360189fb3.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:44:06" />
+    <meta property="og:updated_time" content="2025-04-02T07:44:06" />
+        <meta property="og:description" content="ForkJoin是由JDK1.7后提供多线并发处理框架。主要用于并行计算中，和 MapReduce 原理类似，都是把大的计算任务拆分成多个小任务并行计算。  应用场景 计算1~10的和，每组计算3个，" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ForkJoin详解及应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">ForkJoin详解及应用</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>ForkJoin是由JDK1.7后提供多线并发处理框架。主要用于并行计算中，和 MapReduce 原理类似，都是把大的计算任务拆分成多个小任务并行计算。</p> <div class="mermaid"></div> <h2><a id="_12" rel="nofollow"></a>应用场景</h2> <p>计算1~10的和，每组计算3个，代码如下：</p> <pre><code>public class ForkJoinExample extends RecursiveTask&lt;Integer&gt; {      private final int threshold = 3;     private int first;     private int last;      public ForkJoinExample(int first, int last) {         this.first = first;         this.last = last;     }      @Override     protected Integer compute() {         int result = 0;         if (last - first &lt;= threshold) {             // 任务足够小则直接计算             for (int i = first; i &lt;= last; i++) {                 result += i;             }             System.out.println(Thread.currentThread().getName() + "：∑(" + first + "," + last + ") = " + result);         } else {             // 拆分成小任务             int middle = first + (last - first) / 2;             ForkJoinExample leftTask = new ForkJoinExample(first, middle);             ForkJoinExample rightTask = new ForkJoinExample(middle + 1, last);             leftTask.fork();             rightTask.fork();             result = leftTask.join() + rightTask.join();             System.out.println(Thread.currentThread().getName() + "："                     + "∑(" + first + "," + last + ") = "                     + "∑(" + first + "," + middle + ") + "                     + "∑(" + (middle + 1) + "," + last + ") = "                     + result);         }         return result;     }      public static void main(String[] args) throws ExecutionException, InterruptedException {         ForkJoinExample example = new ForkJoinExample(1, 10);         ForkJoinPool forkJoinPool = new ForkJoinPool();         Future result = forkJoinPool.submit(example);         System.out.println("result = " + result.get());     } }</code></pre> <pre><code>ForkJoinPool-1-worker-2：∑(1,3) = 6 ForkJoinPool-1-worker-1：∑(4,5) = 9 ForkJoinPool-1-worker-2：∑(1,5) = ∑(1,3) + ∑(4,5) = 15 ForkJoinPool-1-worker-2：∑(9,10) = 19 ForkJoinPool-1-worker-3：∑(6,8) = 21 ForkJoinPool-1-worker-3：∑(6,10) = ∑(6,8) + ∑(9,10) = 40 ForkJoinPool-1-worker-1：∑(1,10) = ∑(1,5) + ∑(6,10) = 55 result = 55</code></pre> <p>ForkJoin 使用 ForkJoinPool 来启动，它是一个特殊的线程池，线程数量取决于 CPU 核数。</p> <p>ForkJoinPool 实现了工作窃取算法来提高 CPU 的利用率。每个线程都维护了一个双端队列，用来存储需要执行的任务。工作窃取算法允许空闲的线程从其它线程的双端队列中窃取一个任务来执行。窃取的任务必须是最晚的任务，避免和队列所属线程发生竞争。</p> </h1> <blockquote> <p>ForkJoinTask是RecursiveAction与RecursiveTask的父类， ForkJoinTask中使用了模板模式进行设计<br /> ,将ForkJoinTask的执行相关的代码进行隐藏，通过提供抽象类暴露用户的实际业务处理。</p> </blockquote> <h2><a id="RecursiveTask_78" rel="nofollow"></a>RecursiveTask</h2> <p>通过源码的查看我们可以发现RecursiveTask在进行exec之后会使用一个result的变量进行接受返回的结果。而result返回结果类型是通过泛型进行传入。也就是说RecursiveTask执行后是有返回结果。</p> <h2><a id="RecursiveAction_80" rel="nofollow"></a>RecursiveAction</h2> <p>RecursiveAction在exec后是不会保存返回结果，因此RecursiveAction与RecursiveTask区别在与RecursiveTask是有返回结果而RecursiveAction是没有返回结果。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85974.htm">劳动节福利~ 我给大家写了个博客园快速发文工具_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-86684.htm">小型宠物粮食加工设备价格（宠物粮食加工厂设备）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-v2ray.htm" title="3月12日19M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月12日19M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-v2ray.htm" title="3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-79626.htm" title="动物疫苗公司招聘（动物疫苗销售招聘2020）">动物疫苗公司招聘（动物疫苗销售招聘2020）</a></li>
+                        <li class="py-2"><a href="/news/article-71526.htm" title="使用 vscode 插件可视化制作和管理脚手架及原理解析">使用 vscode 插件可视化制作和管理脚手架及原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-83809.htm" title="现在开宠物店前景好吗（宠物店一年利润怎么样）">现在开宠物店前景好吗（宠物店一年利润怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-86684.htm" title="小型宠物粮食加工设备价格（宠物粮食加工厂设备）">小型宠物粮食加工设备价格（宠物粮食加工厂设备）</a></li>
+                        <li class="py-2"><a href="/news/article-73513.htm" title="国内宠物品牌进口粮回收（国内宠物品牌进口粮回收）">国内宠物品牌进口粮回收（国内宠物品牌进口粮回收）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-clash-subscribe.htm" title="3月4日20M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">3月4日20M/S|SSR/V2ray/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-80297.htm" title="宠物产品定位（宠物店产品定位）">宠物产品定位（宠物店产品定位）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-ssr-subscribe.htm" title="4月2日19M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">4月2日19M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
