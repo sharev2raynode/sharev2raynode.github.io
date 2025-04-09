@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-90299.htm" />
+    <title>Java连接MySQL数据库实例_java</title>
+        <meta name="description" content="首先说明，由于是8版本的数据库，所以配置类的写法上与5版本的有所区别，需要注意，同时用idea或eclipse时需要导入jar包，jar包的下载链接： https://dev.mysql.com/ge" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-90299.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="Java连接MySQL数据库实例_java" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/d8cba1a9fc84abb0a0788cab98045261.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:01:54" />
+    <meta property="og:updated_time" content="2025-04-07T09:01:54" />
+        <meta property="og:description" content="首先说明，由于是8版本的数据库，所以配置类的写法上与5版本的有所区别，需要注意，同时用idea或eclipse时需要导入jar包，jar包的下载链接： https://dev.mysql.com/ge" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java连接MySQL数据库实例_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">Java连接MySQL数据库实例_java</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                                            <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>首先说明，由于是8版本的数据库，所以配置类的写法上与5版本的有所区别，需要注意，同时用idea或eclipse时需要导入jar包，jar包的下载链接：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dev.mysql.com/get/archives/mysql-connector-java-8.0/mysql-connector-java-8.0.28.zip"   target="_blank" rel="nofollow">https://dev.mysql.com/get/archives/mysql-connector-java-8.0/mysql-connector-java-8.0.28.zip</a></p> <p>如果想要下载8版本不同的jar包只需要修改8.0.28为指定版本即可。</p> <p>idea导入jar包的方法如下：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/fa093e7820e38eefeec7a5672f713ee4.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/c3cf41d33aaeeb8ee22b6c3aa87a9971.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/6fed7e5390ad39b7e38752c32dc5c9bc.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/7845733a5694291643ca4779130d1e56.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/e96b255a1022c4b0b5e56b02883de2c8.jpg"></p> <p>然后是代码部分，首先先建表：</p> <div class="ay1code"> <pre class="brush:sql;">CREATE TABLE `train_message` (                                   `id` int NOT NULL AUTO_INCREMENT COMMENT '主键id',                                   `train_name` varchar(20) NOT NULL COMMENT '列车名',                                   `origin` varchar(30) NOT NULL COMMENT '始发地',                                   `terminal` varchar(30) NOT NULL COMMENT '终到地',                                   `departure_time` timestamp NOT NULL COMMENT '出站时间',                                   `state` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '正常' COMMENT '列车状态',                                   PRIMARY KEY (`id`)  ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3</pre> </div> <p>然后创建连接的配置类DbConfig.java，localhost是本机的ip地址，如果有服务器就填服务器的ip地址，message是数据库的名字，这里一张图说下有很多新手误解的名字</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/65d59914c1129d897785fba6c0589b0f.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/068511f8c62845366bb6dcb302b40729.jpg"></p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.DriverManager;  import java.sql.SQLException;    /**   *  数据库配置类   *  @author 景苒   */  public class DbConfig {      public Connection dbConfig() throws SQLException {          try {              Class.forName("com.mysql.cj.jdbc.Driver");          }catch (Exception e) {              System.out.print("加载驱动失败!");              e.printStackTrace();          }          String url = "jdbc:mysql://localhost:3306/message?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true";          String user = "root";          String password = "123456";          return DriverManager.getConnection(url, user, password);      }  }</pre> </div> <p>然后写下主函数Main.java，这里主函数的函数体可以在最后再写，需要什么功能就把注释打开就好，快捷注释的方法，选中这句话，按ctrl加/，就能全注释了。</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.SQLException;    /**   * 主函数，调用功能   * @author 景苒   */  public class Main {      public static void main(String[] args) throws SQLException {  //        new GetMessage().getMessage();  //        new UpdateTrainState().updateTrainState();  //        new InsertTrain().insertTrain();  //        new GetNumber().getNumber();      }  }</pre> </div> <p>然后是每个的功能：</p> <h3>1.查询沈阳到武汉的所有列车信息，按出发时间先后排序</h3> <p>建GetMessage.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.PreparedStatement;  import java.sql.ResultSet;  import java.sql.SQLException;    /**   * 查询沈阳到武汉的所有列车信息，按出发时间先后排序   * @author 景苒   */  public class GetMessage {      public void getMessage() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "select * from `train_message` where origin = ? and terminal = ? ORDER BY departure_time ASC";          String origin = "沈阳";          String terminal = "武汉";          PreparedStatement ps = con.prepareStatement(sql);          ps.setString(1, origin);          ps.setString(2, terminal);          ResultSet rs = ps.executeQuery();          try {              while (rs.next()) {                  System.out.println("列车名：" + rs.getString("train_name")                          + " 始发站：" + rs.getString("origin")                          + " 终到站：" + rs.getString("terminal")                          + " 出发时间：" + rs.getString("departure_time")                          + " 列车状态：" + rs.getString("state"));              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              ps.close();              con.close();          }      }  }</pre> </div> <h3>2.修改T2255列车的状态为停运</h3> <p>建UpdateTrainState.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.SQLException;  import java.sql.Statement;    /**   * 修改T2255列车的状态为停运   * @author 景苒   */  public class UpdateTrainState {      public void updateTrainState() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "UPDATE `train_message` SET state = '停运' WHERE train_name = 'T2255'";          Statement statement = con.createStatement();          try {              int i = statement.executeUpdate(sql);              if (i &gt; 0) {                  System.out.println("更新成功");              }else {                  System.out.println("更新失败");              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              statement.close();              con.close();          }      }  }</pre> </div> <h3>3.新增一辆列车信息（自己输入）</h3> <p>建InsertTrain.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Connection;  import java.sql.PreparedStatement;  import java.sql.SQLException;  import java.util.Scanner;    /**   * 新增一辆列车信息（自己输入）   * 始发时间为timestamp类型，输入时需要确保格式正确，如：2019-01-01 00:00:00   * @author 景苒   */  public class InsertTrain {      public void insertTrain() throws SQLException {          Connection con = new DbConfig().dbConfig();          Scanner scanner = new Scanner(System.in);          String sql = "insert into `train_message` values(null, ?, ?, ?, ?, default)";          System.out.print("请输入列车名：");          String trainName = scanner.nextLine();          System.out.print("请输入始发站：");          String origin = scanner.nextLine();          System.out.print("请输入终到站：");          String terminal = scanner.nextLine();          System.out.print("请输入始发时间：");          String departureTime = scanner.nextLine();          PreparedStatement ps = con.prepareStatement(sql);          ps.setString(1, trainName);          ps.setString(2, origin);          ps.setString(3, terminal);          ps.setString(4, departureTime);          try {              int i = ps.executeUpdate();              if (i &gt; 0) {                  System.out.println("添加成功");              }else {                  System.out.println("添加失败");              }          }catch (SQLException e) {              e.printStackTrace();          }finally {              ps.close();              con.close();          }      }  }</pre> </div> <h3>4.查询状态为正常的列车数量</h3> <p>建GetNumber.java类</p> <div class="ay1code"> <pre class="brush:java;">import java.sql.Statement;    /**   * 查询状态为正常的列车数量   * @author 景苒   */  public class GetNumber {      public void getNumber() throws SQLException {          Connection con = new DbConfig().dbConfig();          String sql = "select count(state) from `train_message` where state = '正常'";          Statement statement = con.createStatement();          try {              ResultSet resultSet = statement.executeQuery(sql);              while (resultSet.next()) {                  System.out.println("状态为正常的列车数量为：" + resultSet.getInt(1));              }          }catch (SQLException e){              e.printStackTrace();          }finally {              statement.close();              con.close();          }      }  }</pre> </div> <p>最后附上navicat的属性结构图和样例插入的语句</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/c6eff9393b2850f4d1e360277e4a1db7.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/a33825d3b3ed9d0e35427e89c753b1a7.jpg"></p> <p>数据根据自己需求自行写入几个就行，以上就是java连接mysql数据库的实例代码，eclipse也大同小异，就导入jar包的方式不同。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90298.htm">python2.7 之无解的yaml版本问题</a></p>
+                                        <p>下一个：<a href="/news/article-91027.htm">动物防疫疫苗的运输规定（动物防疫疫苗的运输规定有哪些）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-v2ray.htm" title="3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-72192.htm" title="vue2 自定义指令 实现全屏 、对话框拖拽">vue2 自定义指令 实现全屏 、对话框拖拽</a></li>
+                        <li class="py-2"><a href="/news/article-78947.htm" title="宠物美容师大概多少钱一个月（宠物美容师月薪多少）">宠物美容师大概多少钱一个月（宠物美容师月薪多少）</a></li>
+                        <li class="py-2"><a href="/news/article-71527.htm" title="宠物领养协议书范本最新图片（宠物领养协议是否有法律效力）">宠物领养协议书范本最新图片（宠物领养协议是否有法律效力）</a></li>
+                        <li class="py-2"><a href="/news/article-85255.htm" title="宠物粮怎么加工好吃 宠物粮怎么加工好吃又简单">宠物粮怎么加工好吃 宠物粮怎么加工好吃又简单</a></li>
+                        <li class="py-2"><a href="/news/article-81006.htm" title="申请动物诊疗机构的条件和流程是什么（申请动物诊疗许可证向哪个部门）">申请动物诊疗机构的条件和流程是什么（申请动物诊疗许可证向哪个部门）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-v2ray-subscribe.htm" title="3月30日20.7M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">3月30日20.7M/S|V2ray/SSR/Clash/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-72845.htm" title="领养狗狗协议怎么签订（领养犬协议）">领养狗狗协议怎么签订（领养犬协议）</a></li>
+                        <li class="py-2"><a href="/news/article-81007.htm" title="平多多无货源退货怎么办（拼多多批发无物流怎么退货）">平多多无货源退货怎么办（拼多多批发无物流怎么退货）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-node-share-links.htm" title="3月27日22.8M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享">3月27日22.8M/S|SSR/Clash/V2ray/Shadowrocket免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
