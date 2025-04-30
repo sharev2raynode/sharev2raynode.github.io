@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-107874.htm" />
+    <title>vue-组件传参（父子，兄弟，组件跨级）</title>
+        <meta name="description" content="一、父子组件之间的传参  1.父传子： 父组件向子组件传入一个参数 注意：父组件传入到子组件中的数据不允许子组件修改：单向数据流 如果需要能修改的话，那么那个数据应该是复杂数据类型，例如Data、fu" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-107874.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="vue-组件传参（父子，兄弟，组件跨级）" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/d4e2ab6957c9e1375f01b9a3b542d455.webp" />
+        <meta property="og:release_date" content="2025-04-30T09:33:26" />
+    <meta property="og:updated_time" content="2025-04-30T09:33:26" />
+        <meta property="og:description" content="一、父子组件之间的传参  1.父传子： 父组件向子组件传入一个参数 注意：父组件传入到子组件中的数据不允许子组件修改：单向数据流 如果需要能修改的话，那么那个数据应该是复杂数据类型，例如Data、fu" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue-组件传参（父子，兄弟，组件跨级）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">vue-组件传参（父子，兄弟，组件跨级）</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                            <div id="xcblog-blog-defined">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_2" rel="nofollow"></a>一、父子组件之间的传参</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/3938908f0b0ec5429cde5a9355a534ab.jpg" alt="vue-组件传参（父子，兄弟，组件跨级）"></p> <h3><a id="1_4" rel="nofollow"></a>1.父传子：</h3> <p>父组件向子组件传入一个参数<br /> 注意：父组件传入到子组件中的数据不允许子组件修改：单向数据流<br /> 如果需要能修改的话，那么那个数据应该是复杂数据类型，例如Data、function、Array，object等<br /> 复杂数据类型：复杂数据类型在栈中存储数据名和一个堆的地址，在堆中存储属性及值。访问时先从栈获取地址，再到堆中拿出相应的值。<br /> 修改：直接将栈空间的内容进行修改<br /> 修改是：栈空间中的内容不会修改，改的是堆空间内容</p> <p>-父传：<br /> 在父组件中：通过给子组件添加自定义属性：来传递参数</p> <pre><code class="prism language-javascript"><span class="token comment">//html</span><span class="token operator">&lt;</span>son<span class="token punctuation">:</span>passvalue<span class="token operator">=</span><span class="token string">"aMsg"</span><span class="token operator">/</span><span class="token operator">&gt;</span></code></pre> <p>-子接：<br /> 在子组件中：通过 props 属性来进行接收</p> <pre><code class="prism language-javascript"><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span> 	props<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'passvalue'</span><span class="token punctuation">]</span><span class="token comment">//passvalue是父组件传递给子组件的参数</span><span class="token punctuation">}</span></code></pre> <p>子组件接收到参数之后的用法跟 data 中数据的用法是一样的，使用this来获取</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> value<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>passvalue</code></pre> <h3><a id="2_34" rel="nofollow"></a>2.子传父</h3> <p>子组件向父组件传入一个参数<br /> -子传：通过一个自定义事件向父组件传递参数：</p> <pre><code class="prism language-javascript"><span class="token comment">//在子组件中的methods中写</span> methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'passtofather'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>sonMsg<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p>-父接<br /> 通过实现这个自定义事件来接收参数</p> <pre><code class="prism language-javascript"><span class="token comment">// html</span><span class="token operator">&lt;</span>son @passtofather<span class="token operator">=</span><span class="token string">"myfn"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token comment">// 在父组件中接收参数时，如果代码写在 html 行内，要获取传入的数据可以通过 $event</span><span class="token comment">// js</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span> 	methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">myfn</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// value 就是子组件传入的参数</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="eventBus_63" rel="nofollow"></a>二、兄弟组件之间传参：eventBus插件</h2> <p>使用步骤：</p> <ol> <li>下载插件：</li> </ol> <pre><code class="prism language-javascript"> npm i eventbus</code></pre> <ol start="2"> <li>创建一个公用的bus,哪里用到就导入</li> </ol> <pre><code class="prism language-javascript"><span class="token comment">//1.创建一个bus.js文件</span><span class="token comment">// 导入vue</span><span class="token keyword">import</span> Vue<span class="token keyword">from</span><span class="token string">'vue'</span><span class="token punctuation">;</span><span class="token comment">// 导出bus</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token keyword">new</span><span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//（没错，这个文件就两行代码）</span><span class="token comment">//2.使用：</span><span class="token comment">//在login.vue组件中使用到bus，就在vue中导入bus文件</span><span class="token comment">//导入 bus.js</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">import</span> bus<span class="token keyword">from</span> 文件路径<span class="token operator">/</span>bus<span class="token punctuation">.</span>js<span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span> 	methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">openreply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//在这里随意写一个方法</span><span class="token comment">// 通过eventbus 向(兄弟组件)中传入数据源 （值）</span> 	        bus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'passitem'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>commentItem<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token comment">//在home.vue组件（兄弟）接收login.vue兄弟传过来的值</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token comment">//导入bus.js</span><span class="token keyword">import</span> bus<span class="token keyword">from</span> 文件路径<span class="token operator">/</span>bus<span class="token punctuation">.</span>js<span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//  $on 接收comment兄弟组件传的参数</span>     bus<span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">"passitem"</span><span class="token punctuation">,</span> value<span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>commentItem<span class="token operator">=</span> value<span class="token punctuation">;</span><span class="token comment">//value就是comment组件传过来的commentItem</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <h2><a id="attrslisteners_112" rel="nofollow"></a>三、组件跨级传参：<code>$attrs和$listeners</code></h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/9db5ca12951df1555fe29e694fba57a1.jpg" alt="vue-组件传参（父子，兄弟，组件跨级）"><br /> 如果A需要传递给C ，该如何传参？<br /> 1.当然你可以使用VueX来进行数据管理，但是如果项目中多个组件共享状态比较少，项目比较小，并且全局状态比较少,使用vuex就没有发挥出VueX的威力了。<br /> 2.使用B来做中转站，也是可以的，但是组件如果嵌套更多，这种方法就会导致代码繁琐，不容易维护<br /> 3.使用<code>$attrs和$listeners</code>，这是vue2.4版本出来的方法<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/07e46ff3652931f06c1335f8d41245d0.jpg" alt="vue-组件传参（父子，兄弟，组件跨级）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/5bb7263aed3f2585131988e7c1453ba9.jpg" alt="vue-组件传参（父子，兄弟，组件跨级）"><br /> （本人没有具体使用过这个传参方式，若有哪位大佬使用过，非常欢迎来指点一下，技术问题可尽情来骚扰！！）</p> <h4><a id="_123" rel="nofollow"></a>组件传参还有其他种方式</h4> <p>组件之间的传参方式：</p> <ul> <li>props / $emit</li> <li>eventbus</li> <li>vuex</li> <li>$attrs / $listeners</li> <li>ref / $parent</li> </ul> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-107873.htm">c++动态库与静态库</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-73514.htm" title="猫三联一共几针,多少钱北京（猫三联每针的作用）">猫三联一共几针,多少钱北京（猫三联每针的作用）</a></li>
+                        <li class="py-2"><a href="/news/article-75538.htm" title="SpringBoot系列: url重定向和转发">SpringBoot系列: url重定向和转发</a></li>
+                        <li class="py-2"><a href="/news/article-95586.htm" title="动物医院诊疗范围有哪些项目呢（动物医院看病贵吗）">动物医院诊疗范围有哪些项目呢（动物医院看病贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-78948.htm" title="宠物店里猫粮多少钱 宠物店里猫粮多少钱一袋">宠物店里猫粮多少钱 宠物店里猫粮多少钱一袋</a></li>
+                        <li class="py-2"><a href="/news/article-69567.htm" title="MySQL CONCAT_WS()函数的用途是什么？">MySQL CONCAT_WS()函数的用途是什么？</a></li>
+                        <li class="py-2"><a href="/news/article-100043.htm" title="动物医院英文缩写是什么意思 动物医院英文缩写是什么意思啊">动物医院英文缩写是什么意思 动物医院英文缩写是什么意思啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-free-clash.htm" title="4月23日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">4月23日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-88118.htm" title="动物疫苗打一次管多长时间啊图片大全图解（动物疫苗一针多少钱）">动物疫苗打一次管多长时间啊图片大全图解（动物疫苗一针多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-free-v2ray.htm" title="3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月6日22.5M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-72844.htm" title="宠物领养协议范本 宠物领养协议范本免费">宠物领养协议范本 宠物领养协议范本免费</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>

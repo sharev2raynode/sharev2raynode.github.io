@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="canonical" href="https://sharev2raynode.github.io/news/article-107873.htm" />
+    <title>c++动态库与静态库</title>
+        <meta name="description" content="什么是库 库是写好的现有的，成熟的，可以复用的代码。现实中每个程序员都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在意义非同寻常。 本质上来说库是一种可执行代码的二进制形式，可以被" />
+        <link rel="icon" href="/assets/website/img/sharev2raynode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="ShareV2rayNode节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sharev2raynode.github.io/news/article-107873.htm" />
+    <meta property="og:site_name" content="ShareV2rayNode节点分享站" />
+    <meta property="og:title" content="c++动态库与静态库" />
+    <meta property="og:image" content="https://sharev2raynode.github.io/uploads/20240417/b15b8591da099df3483773452c0cbbec.webp" />
+        <meta property="og:release_date" content="2025-04-30T09:33:26" />
+    <meta property="og:updated_time" content="2025-04-30T09:33:26" />
+        <meta property="og:description" content="什么是库 库是写好的现有的，成熟的，可以复用的代码。现实中每个程序员都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在意义非同寻常。 本质上来说库是一种可执行代码的二进制形式，可以被" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="c++动态库与静态库">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/bootstrap.min.css">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/owl.theme.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/font-awesome.min.css">
+    <!-- STROKE-GAP-ICONS-WEBFONT -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/Stroke-Gap-Icons-Webfont.css">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,300italic,400italic,500,500italic,600,600italic,700,700italic%7COpen+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+    <!-- MAGNIFIC POPUP CORE CSS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/magnific/magnific-popup.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link href="/assets/website/css/sharev2raynode/revolution/settings.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/layers.css" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link href="/assets/website/css/sharev2raynode/revolution/navigation.css" rel="stylesheet" type="text/css">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/main.css">
+    <link rel="stylesheet" href="/assets/website/css/sharev2raynode/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+	<script src="/assets/website/js/frontend/sharev2raynode/html5shiv.min.js"></script>
+	<script src="/assets/website/js/frontend/sharev2raynode/respond.min.js"></script>
+	<![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZZRF0BXYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZZRF0BXYJ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div class="wrapper">
+                <!-- HEADER -->
+        <header id="header" class="header">
+            
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#my-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- TEMPLATE LOGO -->
+                        <a class="navbar-brand" href="/">
+                                                <span>Share V2ray Node</span>
+                                                </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="my-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                                        <li><a href="/">首页</a></li>
+                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li><a href="/client.htm">客户端</a></li>
+                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+                <!-- BAR-MULTI-COLOR -->
+                <div class="bar-multi-color">
+                    <div class="container"></div>
+                </div>
+            </nav>
+        </header> <!-- /.END HEADER -->
+        <!-- SLIDER START HERE -->
+        <!-- PAGE TITLE -->
+        <div class="page-title">
+            <div class="background-overlay padd-tb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="border-left-yellow padd-l-10 text-uppercase">c++动态库与静态库</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.END PAGE TITLE -->
+        
+        <!-- MAIN CONTENT START HERE -->
+        <section class="body-content">
+            <!-- ABOUT START HERE -->
+            <div class="section-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <ol class="breadcrumb">
+                              <li><a href="/">首页</a></li>
+                              <li><a href="/news/">新闻资讯</a></li>
+                              <li class="active">正文</li>
+                            </ol>
+                            
+                            <div id="xcblog-blog-defined">
+                                                <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2> <a id="_0" rel="nofollow"></a>什么是库</h2> <p>库是写好的现有的，成熟的，可以复用的代码。现实中每个程序员都要依赖很多基础的底层库，不可能每个人的代码都从零开始，因此库的存在意义非同寻常。</p> <p>本质上来说库是一种可执行代码的二进制形式，可以被操作系统载入内存执行。</p> <p>库有两种：静态库(.a，.lib)和动态库(.so，.all)。</p> <p><strong>所谓静态，动态是指链接。</strong></p> <p>回顾一下，将一整个程序编译成可执行程序的步骤：<br /> ![在这里插入图片描述](https://img-blog.csdnimg.cn/a693a678ff1e4a238f<img decoding="async" src="http://img.555519.xyz/uploads/20230223/d9c38c2a51e676168a9b870f8a65ba22.jpg" alt="c++动态库与静态库"></p> <h2> <a id="_13" rel="nofollow"></a>静态库</h2> <p>之所以称为静态库，是因为在链接阶段，会将汇编生成的目标文件.o与引用到的库一起链接打包到可执行文件中。因此对应的链接方式为静态链接。</p> <p>静态库与汇编生成的目标文件一起链接为可执行文件，那么静态库必定与.o文件格式相似。其实静态库可以简单看成是一组目标文件.o/.obj的集合。</p> <p>静态库特点总结：</p> <ul> <li>静态库对函数库的链接是放在编译时期完成的。</li> <li>程序在运行是与函数再无瓜葛，移植方便。</li> <li>浪费空间和资源，因为所有相关的目标文件与牵涉到的函数库被链接合成一个可执行文件。<br /> 创建静态库过程如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/cac57b56c3d4b2d72827b097814dd2ef.jpg" alt="c++动态库与静态库"><br /> VS工程下设置静态库的步骤：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/1afdff01dfa0f52d9895bc1dd26026c0.jpg" alt="c++动态库与静态库"> </li> </ul> <p>使用静态库的三种方法:</p> <p><strong>方法1</strong>：</p> <p>工程“属性面板”，“通用属性”， “框架和引用”，”添加引用”，将显示“添加引用”对话框。 “项目”选项卡列出了当前解决方案中的各个项目以及可以引用的所有库。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/f8167b554a4b712af30a17f8adf409b1.jpg" alt="c++动态库与静态库"><br /> 选择了某个库，必须修改包含目录路径。打开工程“属性面板”，”配置属性”， “C/C++，常规”，在“附加包含目录”属性值中，键入头文件所在目录的路径或浏览至该目录。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/80831a413fc27753a0e7491182680c64.jpg" alt="c++动态库与静态库"></p> <p>如果引用的静态库不是在同一解决方案下的子工程，而是使用第三方提供的静态库lib和头文件，上面的方法设置不了。还有2中方法设置都可行。</p> <p><strong>方法2</strong>：</p> <p>打开工程“属性面板”，”配置属性”， “链接器”，”命令行”，输入静态库的完整路径即可。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/344b916c42399b8ea0d92494bb315f6f.jpg" alt="c++动态库与静态库"><br /><strong>方法3：</strong></p> <ul> <li>“属性面板”，”配置属性”， “链接器”，”常规”，附加依赖库目录中输入，静态库所在目录；</li> <li>“属性面板”，”配置属性”，“链接器”，”输入”，附加依赖库中输入静态库名。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/c5a87964ad0831d01e75f0827040585a.jpg" alt="c++动态库与静态库"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/f5ada0c4c45a31b53a5511e71b7efcb6.jpg" alt="c++动态库与静态库"> </li> </ul> <h2> <a id="_51" rel="nofollow"></a>动态库</h2> <p>通过上面的介绍发现静态库，容易使用和理解，也达到了代码复用的目的，那为什么还需要动态库呢？</p> <p>为什么需要动态库，其实也是静态库的特点导致。</p> <ul> <li> <p>空间浪费是静态库的一个问题。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/0cf55ec95c6cc858400e06f80628ce45.jpg" alt="c++动态库与静态库"></p> </li> <li> <p>另一个问题是静态库对程序的更新、部署和发布页会带来麻烦。如果静态库liba.lib更新了，所以使用它的应用程序都需要重新编译、发布给用户（对于玩家来说，可能是一个很小的改动，却导致整个程序重新下载，全量更新）。</p> </li> </ul> <p>动态库在程序编译时并不会被连接到目标代码中，而是在程序运行是才被载入。<strong>不同的应用程序如果调用相同的库，那么在内存里只需要有一份该共享库的实例，规避了空间浪费问题</strong>。动态库在程序运行是才被载入，也解决了静态库对程序的更新、部署和发布页会带来麻烦。用户只需要更新动态库即可，增量更新。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/eebdeac3cc122118f19f120de9450976.jpg" alt="c++动态库与静态库"></p> <p>动态库特点总结：</p> <ul> <li>动态库把对一些库函数的链接载入推迟到程序运行的时期。</li> <li>可以实现进程之间的资源共享。（因此动态库也称为共享库）</li> <li>将一些程序升级变得简单。 甚至可以真正做到链接载入完全由程序员在程序代码中控制（显示调用）。</li> </ul> <p><strong>动态库的设置与静态库的设置一样。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/420cebaaa5b5bc17abe537abb697a8e1.jpg" alt="c++动态库与静态库"></p> <p>动态库的使用与静态库的使用基本相同。这里不再赘述。</p> <h2> <a id="_76" rel="nofollow"></a>总结</h2> <p><strong>二者的不同点在于代码被载入的时刻不同。</strong></p> <ul> <li>静态库在程序编译时会被连接到目标代码中，程序运行时将不再需要该静态库，因此体积较大。</li> <li>动态库在程序编译时并不会被连接到目标代码中，而是在程序运行是才被载入，因此在程序运行时还需要动态库存在，因此代码体积较小。</li> </ul> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-106850.htm">宠物粮食店铺名称怎么取名（宠物粮食店一年利润怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-107874.htm">vue-组件传参（父子，兄弟，组件跨级）</a></p>
+                                    </div>
+                                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-node-share.htm" title="3月11日19.9M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">3月11日19.9M/S|Shadowrocket/SSR/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-subscribe-node.htm" title="4月11日20.6M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享">4月11日20.6M/S|SSR/Shadowrocket/Clash/V2ray免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-68922.htm" title="pytorch 多GPU训练的模型在单卡或CPU上加载">pytorch 多GPU训练的模型在单卡或CPU上加载</a></li>
+                        <li class="py-2"><a href="/news/article-81007.htm" title="平多多无货源退货怎么办（拼多多批发无物流怎么退货）">平多多无货源退货怎么办（拼多多批发无物流怎么退货）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-clash-node.htm" title="3月2日22.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">3月2日22.6M/S|Shadowrocket/Clash/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-93299.htm" title="丁禹兮韩硕图（干货分享）丁禹兮韩硕剧照，伪装夫妇，丁禹兮个人资料，">丁禹兮韩硕图（干货分享）丁禹兮韩硕剧照，伪装夫妇，丁禹兮个人资料，</a></li>
+                        <li class="py-2"><a href="/news/article-84531.htm" title="兽用疫苗储藏冷藏温度多少合适（兽用疫苗储存温度要求）">兽用疫苗储藏冷藏温度多少合适（兽用疫苗储存温度要求）</a></li>
+                        <li class="py-2"><a href="/news/article-70866.htm" title="我想看动物园图片（我想看动物园的图片）">我想看动物园图片（我想看动物园的图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-free-clash.htm" title="4月23日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享">4月23日22.7M/S|Clash/Shadowrocket/V2ray/SSR免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/news/article-70865.htm" title="做狗粮有市场吗 做狗粮有市场吗现在">做狗粮有市场吗 做狗粮有市场吗现在</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.END ABOUT -->
+
+        </section>
+        <!-- /.END MAIN CONTENT -->
+                <!-- START FOOTER AREA -->
+        <div class="bar-multi-color">
+            <div class="container"></div>
+        </div>
+        <footer class="footer bg-black-light">
+            <!-- COPYRIGHT AREA -->
+            <div class="secondary-footer bg-black">
+                <div class="copyright text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+	                ShareV2rayNode节点分享站 版权所有
+	                <br />
+	                Powered by WordPress
+                </div>
+            </div>
+        </footer>
+        <!-- /.END FOOTER -->
+        <!-- SCROLL TOP -->
+        <div class='scrolltop'>
+            <div class='scroll icon'><i class="fa fa-angle-up"></i></div>
+        </div>
+        <!-- JQUERY -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery-1.11.3.min.js"></script>
+        <!-- EASING -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.easing.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/bootstrap.min.js"></script>
+        <!-- NAV JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.nav.js"></script>
+        <!-- MIXITUP -->
+        <script src="/assets/website/js/frontend/sharev2raynode/jquery.mixitup.min.js"></script>
+        <!-- MAGNIFIC JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/magnific/jquery.magnific-popup.min.js"></script>
+        <!-- OWL CAROUSEL -->
+        <script src="/assets/website/js/frontend/sharev2raynode/owl.carousel.js"></script>
+        <!-- COUNER-UP JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoint.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/waypoints.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/counter-up/jquery.counterup.min.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.tools.min.js"></script>
+        <script src="/assets/website/js/frontend/sharev2raynode/revolution/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.video.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/sharev2raynode/revolution/extensions/revolution.extension.carousel.min.js"></script>
+        <!-- CUSTOM JS -->
+        <script src="/assets/website/js/frontend/sharev2raynode/custom.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+    <!-- *** END *** -->
+</body>
+
+</html>
