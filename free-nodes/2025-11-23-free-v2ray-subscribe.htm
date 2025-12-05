@@ -325,14 +325,9 @@ A：更换低负载服务器，或使用多服务器负载均衡配置。</p>
         VLESS 是 VMess 的后继协议，移除了加密层以减少服务器资源消耗，同时提供更灵活的加密与传输方式选择。它更轻量、可扩展性更好，常被用于与 XTLS 等新传输协议搭配使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 模式相比普通 TLS 有什么优势？</h5></div>
+    <div class="panel-heading"><h5>Shadowrocket 如何处理域名直连与代理的冲突？</h5></div>
     <div class="panel-body">
-        Reality 模式通过伪装握手和真实网站特征，提高流量隐蔽性，难以被 DPI 检测。TLS 模式更侧重加密和传输效率，Reality 更适合高封锁网络环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 如何通过节点测速选择最优线路？</h5></div>
-    <div class="panel-body">
-        Matsuri 会定期测速节点延迟和丢包率，结合策略组自动选择延迟低、稳定性高的节点。这样可以提升网页、视频和游戏访问速度，减少掉线和卡顿，优化整体体验。<hr />    </div>
+        在 Shadowrocket 的规则管理中优先设置具体规则（如 DOMAIN-KEYWORD 或 DOMAIN-SUFFIX），将直连规则放在规则列表靠前位置，避免被泛用的代理规则覆盖，从而确保特定域名走直连。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的规则优先级如何设置？</h5></div>
@@ -340,14 +335,9 @@ A：更换低负载服务器，或使用多服务器负载均衡配置。</p>
         在 PassWall2 中，规则的匹配顺序按配置文件自上而下执行。建议将精确规则放在前面，通用规则放后面，以确保高优先级的流量优先被正确分流到指定出口。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的节点测速如何优化策略组选择？</h5></div>
+    <div class="panel-heading"><h5>Clash 的自动测速功能如何设置？</h5></div>
     <div class="panel-body">
-        Shadowrocket 会测量节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量走最佳节点，提高访问速度和连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的重写脚本可以实现哪些功能？</h5></div>
-    <div class="panel-body">
-        QuantumultX 支持 JavaScript 重写脚本，可修改请求头、响应内容、跳转 URL、广告屏蔽和定制化流量处理。结合策略组可实现个性化网络访问和优化，提高用户体验。<hr />    </div>
+        Clash 支持定期测速节点延迟，用户可以设置测速频率和超时时间。测速结果会影响策略组的节点选择，从而自动切换至最优节点，提高访问速度和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan TLS 伪装域名如何提高抗封锁能力？</h5></div>
@@ -355,19 +345,29 @@ A：更换低负载服务器，或使用多服务器负载均衡配置。</p>
         通过选择真实可访问域名并使用有效证书，Trojan 流量可以完全模拟 HTTPS 请求。隐藏真实流量特征，降低被封锁和 DPI 检测风险，保证节点长期可用。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 如何通过节点测速选择最优线路？</h5></div>
+    <div class="panel-body">
+        Matsuri 会定期测速节点延迟和丢包率，结合策略组自动选择延迟低、稳定性高的节点。这样可以提升网页、视频和游戏访问速度，减少掉线和卡顿，优化整体体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 支持 Trojan 吗？</h5></div>
     <div class="panel-body">
         支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 如何处理域名直连与代理的冲突？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的重写脚本可以实现哪些功能？</h5></div>
     <div class="panel-body">
-        在 Shadowrocket 的规则管理中优先设置具体规则（如 DOMAIN-KEYWORD 或 DOMAIN-SUFFIX），将直连规则放在规则列表靠前位置，避免被泛用的代理规则覆盖，从而确保特定域名走直连。<hr />    </div>
+        QuantumultX 支持 JavaScript 重写脚本，可修改请求头、响应内容、跳转 URL、广告屏蔽和定制化流量处理。结合策略组可实现个性化网络访问和优化，提高用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的自动测速功能如何设置？</h5></div>
+    <div class="panel-heading"><h5>VLESS + Reality 模式相比普通 TLS 有什么优势？</h5></div>
     <div class="panel-body">
-        Clash 支持定期测速节点延迟，用户可以设置测速频率和超时时间。测速结果会影响策略组的节点选择，从而自动切换至最优节点，提高访问速度和连接稳定性。    </div>
+        Reality 模式通过伪装握手和真实网站特征，提高流量隐蔽性，难以被 DPI 检测。TLS 模式更侧重加密和传输效率，Reality 更适合高封锁网络环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的节点测速如何优化策略组选择？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 会测量节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量走最佳节点，提高访问速度和连接稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -397,16 +397,16 @@ A：更换低负载服务器，或使用多服务器负载均衡配置。</p>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-11-27-free-clash.htm" title="11月27日22.2M/S|Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月27日22.2M/S|Clash节点/Shadowrocket节点/Singbox节点/SSR节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-free-high-speed-nodes.htm" title="12月3日20.5M/S|Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月3日20.5M/S|Clash节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-node-daily-updates.htm" title="11月14日18.9M/S|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月14日18.9M/S|V2ray节点/Clash节点/Shadowrocket节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-23-free-v2ray-subscribe.htm" title="11月23日22.1M/S|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月23日22.1M/S|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-18-clash-windows.htm" title="10月18日22.4M/S|V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享">10月18日22.4M/S|V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-22-free-ssr-subscribe.htm" title="11月22日20.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月22日20.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-21-free-shadowrocket-node.htm" title="11月21日21.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月21日21.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-node.htm" title="11月8日21.3M/S|V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月8日21.3M/S|V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-23-free-v2ray-subscribe.htm" title="10月23日18.4M/S|V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">10月23日18.4M/S|V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-4-free-clash-subscribe.htm" title="11月4日21.1M/S|Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月4日21.1M/S|Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-4-node-share.htm" title="10月4日22.8M/S|SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">10月4日22.8M/S|SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-1-free-high-speed-nodes.htm" title="11月1日22.5M/S|Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月1日22.5M/S|Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-17-clash-v2ray-ss-ssr.htm" title="11月17日22.5M/S|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月17日22.5M/S|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-free-node-subscribe-links.htm" title="11月6日22.5M/S|Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月6日22.5M/S|Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-7-clash-v2ray-ss-ssr.htm" title="11月7日20.6M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月7日20.6M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-10-node-share-links.htm" title="11月10日20.4M/S|V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月10日20.4M/S|V2ray节点/Singbox节点/Clash节点/SSR节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-20-free-clash-subscribe.htm" title="11月20日18.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月20日18.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-free-v2ray.htm" title="12月1日18.8M/S|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月1日18.8M/S|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                     </ul>
     </div>
 </div>
@@ -418,10 +418,10 @@ A：更换低负载服务器，或使用多服务器负载均衡配置。</p>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
