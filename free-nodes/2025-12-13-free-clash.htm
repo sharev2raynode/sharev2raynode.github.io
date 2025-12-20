@@ -174,12 +174,13 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/2025-12-11-clash-windows.htm">12月11日21.3M/S|V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></p>
+        <p>下一个：<a href="/free-nodes/2025-12-14-free-clash-subscribe.htm">12月14日18.9M/S|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 节点延迟高、丢包严重，常见排查步骤有哪些？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
     <div class="panel-body">
-        先用 ping 和 traceroute 检查到服务器的延迟与路由跳数；再通过测速工具测带宽并尝试更换不同出站端口或混淆方式；若仍然不稳，考虑更换节点或联系客服查看服务端链路质量。<hr />    </div>
+        Matsuri 会定期测速节点延迟，并根据结果排序。用户可选择延迟最低的节点进行访问，结合策略组实现自动切换，提高网络速度和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的分流规则如何实现广告拦截？</h5></div>
@@ -187,14 +188,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         通过配置规则，将广告域名或请求路径匹配到黑名单策略，使请求直接阻断或重定向到本地地址。这样用户浏览网页或使用应用时可自动屏蔽大部分广告内容。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持 Trojan 吗？</h5></div>
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
     <div class="panel-body">
-        支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 节点延迟高、丢包严重，常见排查步骤有哪些？</h5></div>
+    <div class="panel-body">
+        先用 ping 和 traceroute 检查到服务器的延迟与路由跳数；再通过测速工具测带宽并尝试更换不同出站端口或混淆方式；若仍然不稳，考虑更换节点或联系客服查看服务端链路质量。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow 有哪些优势？</h5></div>
     <div class="panel-body">
         Mellow 是一个轻量化的跨平台代理客户端，采用透明代理和规则路由技术。它支持 V2Ray、Trojan 等协议，适用于 macOS、Windows 等操作系统。Mellow 运行稳定、资源占用低，非常适合后台长期使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 支持 Trojan 吗？</h5></div>
+    <div class="panel-body">
+        支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组如何保证低延迟？</h5></div>
+    <div class="panel-body">
+        将节点按延迟、地区或用途分组，并启用策略组，系统会根据节点延迟和健康状态自动选择最佳节点。保证网页浏览、视频播放和游戏流量的低延迟和稳定连接。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
+    <div class="panel-body">
+        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + XTLS 模式适合移动网络吗？</h5></div>
@@ -204,27 +225,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 支持哪几种代理协议？</h5></div>
     <div class="panel-body">
-        Shadowrocket 支持多种协议，包括 Shadowsocks、Vmess、VLess、Trojan、HTTP、SOCKS5 等。它还可解析部分 QuantumultX 与 Clash 的订阅格式，适合 iOS 用户进行全协议代理管理与切换。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
-    <div class="panel-body">
-        首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅批量更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期更新保证节点列表始终可用，减少手动维护，提高使用效率和便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组如何保证低延迟？</h5></div>
-    <div class="panel-body">
-        将节点按延迟、地区或用途分组，并启用策略组，系统会根据节点延迟和健康状态自动选择最佳节点。保证网页浏览、视频播放和游戏流量的低延迟和稳定连接。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
-    <div class="panel-body">
-        Matsuri 会定期测速节点延迟，并根据结果排序。用户可选择延迟最低的节点进行访问，结合策略组实现自动切换，提高网络速度和连接稳定性。    </div>
+        Shadowrocket 支持多种协议，包括 Shadowsocks、Vmess、VLess、Trojan、HTTP、SOCKS5 等。它还可解析部分 QuantumultX 与 Clash 的订阅格式，适合 iOS 用户进行全协议代理管理与切换。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -254,16 +255,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-11-18-node-share.htm" title="11月18日20.9M/S|Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月18日20.9M/S|Clash节点/SSR节点/Shadowrocket节点/V2ray节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-6-free-ssr-node.htm" title="12月6日22.7M/S|Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月6日22.7M/S|Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-7-clash-v2ray-ss-ssr.htm" title="11月7日20.6M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月7日20.6M/S|Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-10-free-node-subscribe.htm" title="12月10日19.1M/S|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月10日19.1M/S|Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-node.htm" title="11月8日21.3M/S|V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月8日21.3M/S|V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-28-node-share.htm" title="11月28日23M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月28日23M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-23-free-v2ray-subscribe.htm" title="11月23日22.1M/S|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月23日22.1M/S|SSR节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-22-free-ssr-subscribe.htm" title="11月22日20.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月22日20.3M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-6-free-node-subscribe-links.htm" title="11月6日22.5M/S|Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月6日22.5M/S|Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-9-clash-node.htm" title="11月9日21.9M/S|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月9日21.9M/S|V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-5-free-clash.htm" title="11月5日21.4M/S|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月5日21.4M/S|Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-5-free-clash-subscribe.htm" title="12月5日19.1M/S|Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月5日19.1M/S|Shadowrocket节点/Singbox节点/Clash节点/SSR节点/V2ray节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-free-subscribe-node.htm" title="11月12日22M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月12日22M/S|Singbox节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-21-free-shadowrocket-node.htm" title="11月21日21.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月21日21.4M/S|SSR节点/Singbox节点/V2ray节点/Shadowrocket节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-13-free-node-subscribe.htm" title="11月13日20.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月13日20.6M/S|V2ray节点/Clash节点/SSR节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-13-free-clash.htm" title="12月13日20.8M/S|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月13日20.8M/S|SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-15-free-node-subscribe.htm" title="11月15日19.4M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享">11月15日19.4M/S|SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-9-free-subscribe-node.htm" title="12月9日20M/S|Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享">12月9日20M/S|Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点免费节点每天更新订阅链接，翻墙机场推荐分享</a></li>
                     </ul>
     </div>
 </div>
@@ -275,7 +276,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
